@@ -1,0 +1,480 @@
+/* Dashboard and Threat Center Styles for ShadowShield AI */
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  height: 100%;
+  gap: 20px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+  .dashboard-side-panel {
+    height: auto !important;
+  }
+}
+
+.dashboard-main-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 2x2 CCTV Grid */
+.cctv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+  flex: 1;
+  min-height: 480px;
+}
+
+@media (max-width: 768px) {
+  .cctv-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 300px);
+    min-height: auto;
+    flex: none;
+  }
+}
+
+/* Camera Panel */
+.camera-feed-panel {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(0, 242, 254, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.camera-feed-panel.alerting {
+  border-color: var(--neon-red);
+  box-shadow: 0 0 15px rgba(255, 56, 96, 0.4);
+  animation: borderAlertPulse 1.5s infinite;
+}
+
+@keyframes borderAlertPulse {
+  0%, 100% { border-color: rgba(255, 56, 96, 0.3); }
+  50% { border-color: var(--neon-red); }
+}
+
+.camera-canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* CCTV Header HUD Overlay */
+.camera-hud-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 14px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, transparent 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.camera-title-tag {
+  font-family: var(--font-hud);
+  font-size: 11px;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.camera-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--neon-green);
+  box-shadow: 0 0 6px var(--neon-green);
+}
+
+.camera-feed-panel.alerting .camera-status-dot {
+  background: var(--neon-red);
+  box-shadow: 0 0 6px var(--neon-red);
+  animation: flashStatus 0.5s infinite;
+}
+
+.camera-diagnostics-text {
+  font-family: var(--font-hud);
+  font-size: 10px;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 4px rgba(0, 242, 254, 0.5);
+  display: flex;
+  gap: 12px;
+}
+
+/* CCTV Footer HUD Overlay (Authority Unblur Button, etc.) */
+.camera-hud-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 14px;
+  background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, transparent 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.anonymity-badge {
+  font-family: var(--font-hud);
+  font-size: 10px;
+  color: var(--neon-green);
+  border: 1px solid rgba(57, 255, 20, 0.3);
+  padding: 3px 6px;
+  border-radius: 2px;
+  background: rgba(57, 255, 20, 0.05);
+}
+
+.camera-feed-panel.unshielded .anonymity-badge {
+  color: var(--neon-red);
+  border-color: rgba(255, 56, 96, 0.3);
+  background: rgba(255, 56, 96, 0.05);
+}
+
+.override-btn {
+  font-family: var(--font-hud);
+  font-size: 9px;
+  padding: 4px 10px;
+  border: 1px solid var(--neon-blue);
+  background: rgba(0, 242, 254, 0.1);
+  color: var(--neon-blue);
+  cursor: pointer;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: var(--trans-fast);
+}
+
+.override-btn:hover {
+  background: var(--neon-blue);
+  color: #000;
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+}
+
+/* Side panel dashboard tools */
+.dashboard-side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Radar Sweep Panel */
+.radar-panel {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.radar-canvas-container {
+  width: 220px;
+  height: 220px;
+  position: relative;
+  margin: 10px auto;
+  border: 1px solid rgba(0, 242, 254, 0.1);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(13, 16, 27, 0.4) 0%, rgba(5, 5, 8, 0.9) 100%);
+}
+
+.radar-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.radar-stats {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-family: var(--font-hud);
+}
+
+.radar-stat-item span {
+  display: block;
+  font-size: 14px;
+  color: var(--neon-cyan);
+  font-weight: bold;
+}
+
+/* Incident Response Logger */
+.incident-logger {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+}
+
+.log-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 380px;
+}
+
+.log-entry {
+  font-size: 11.5px;
+  padding: 8px 10px;
+  border-left: 2px solid var(--neon-blue);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.log-entry.critical {
+  border-left-color: var(--neon-red);
+  background: rgba(255, 56, 96, 0.03);
+}
+
+.log-entry.warning {
+  border-left-color: var(--neon-yellow);
+  background: rgba(243, 243, 21, 0.03);
+}
+
+.log-entry.success {
+  border-left-color: var(--neon-green);
+  background: rgba(57, 255, 20, 0.03);
+}
+
+.log-time {
+  font-family: var(--font-hud);
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.log-message {
+  color: var(--text-primary);
+}
+
+/* Interactive Threat Screen Panels */
+.threat-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  height: 100%;
+  gap: 20px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+  .threat-grid-layout {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+}
+
+.threat-view-container {
+  position: relative;
+  background: #000;
+  border: 1px solid var(--neon-red);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(255, 56, 96, 0.2);
+}
+
+.threat-canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.threat-reticle-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 160px;
+  height: 160px;
+  transform: translate(-50%, -50%);
+  border: 2px dashed var(--neon-red);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: rotateReticle 10s linear infinite;
+  z-index: 5;
+}
+
+@keyframes rotateReticle {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.threat-target-tag {
+  position: absolute;
+  top: calc(50% + 90px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--neon-red);
+  color: #fff;
+  font-family: var(--font-hud);
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 12px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  animation: flashStatus 0.8s infinite;
+  box-shadow: 0 0 10px var(--neon-red);
+  z-index: 5;
+}
+
+/* AI Diagnostics panel in Threat View */
+.threat-meta-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.ai-threat-meter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
+  position: relative;
+}
+
+.ai-radial-svg {
+  width: 150px;
+  height: 150px;
+  transform: rotate(-90deg);
+}
+
+.radial-bg-circle {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.05);
+  stroke-width: 10px;
+}
+
+.radial-active-circle {
+  fill: none;
+  stroke: var(--neon-red);
+  stroke-width: 10px;
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s ease-out;
+}
+
+.ai-meter-text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-hud);
+}
+
+.ai-meter-percentage {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--neon-red);
+  text-shadow: var(--text-glow-red);
+}
+
+.ai-meter-label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Sim Action Trigger Buttons */
+.threat-actions-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Real-Time Dashboard Live Telemetry Stats */
+.dashboard-telemetry-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.telemetry-card {
+  background: rgba(5, 5, 8, 0.45);
+  border: 1px solid rgba(0, 242, 254, 0.15);
+  border-radius: 6px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(0, 242, 254, 0.03);
+}
+
+.telemetry-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon-cyan), transparent);
+}
+
+.telemetry-label {
+  font-family: var(--font-hud);
+  font-size: 8px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.telemetry-value {
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--neon-cyan);
+  text-shadow: var(--text-glow-blue);
+  display: flex;
+  align-items: baseline;
+}
+
+.telemetry-unit {
+  font-size: 9px;
+  color: var(--text-secondary);
+  margin-left: 2px;
+}
+
+/* Ethical AI log item animations */
+.ethical-log-item {
+  animation: fadeInEthical 0.4s ease-out;
+}
+
+@keyframes fadeInEthical {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,215 @@
+/* Admin Control Center & Modal Styles for ShadowShield AI */
+
+.admin-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+@media (max-width: 992px) {
+  .admin-grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.admin-panel-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.admin-switches-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Modals Overlay Base */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(3, 3, 5, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--trans-normal), visibility var(--trans-normal);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal Content Panel */
+.modal-container {
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg-panel-solid);
+  border: 1px solid var(--border-neon);
+  box-shadow: 0 10px 40px rgba(0, 242, 254, 0.25);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transform: translateY(-20px) scale(0.95);
+  transition: transform var(--trans-normal);
+}
+
+.modal-overlay.active .modal-container {
+  transform: translateY(0) scale(1);
+}
+
+.modal-container.danger {
+  border-color: var(--neon-red);
+  box-shadow: 0 10px 40px rgba(255, 56, 96, 0.25);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 10px;
+}
+
+.modal-title {
+  font-family: var(--font-hud);
+  font-size: 15px;
+  color: var(--neon-cyan);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 20px;
+  cursor: pointer;
+  transition: var(--trans-fast);
+}
+
+.modal-close-btn:hover {
+  color: var(--neon-red);
+}
+
+/* Biometric Scan Animation Box */
+.bio-scanner-box {
+  width: 100%;
+  height: 180px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px dashed rgba(0, 242, 254, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bio-fingerprint {
+  width: 90px;
+  height: 90px;
+  color: var(--neon-blue);
+  filter: drop-shadow(0 0 8px var(--neon-blue));
+  opacity: 0.8;
+  transition: color 0.5s ease;
+}
+
+.bio-scanner-box.scanning .bio-fingerprint {
+  animation: pulseScanColor 1s infinite alternate;
+}
+
+.bio-scanner-box.success .bio-fingerprint {
+  color: var(--neon-green);
+  filter: drop-shadow(0 0 12px var(--neon-green));
+}
+
+@keyframes pulseScanColor {
+  0% { color: var(--neon-blue); }
+  100% { color: var(--neon-purple); }
+}
+
+.bio-scan-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+  box-shadow: 0 0 10px var(--neon-blue);
+  top: 0;
+  animation: scanLineMove 2s infinite linear;
+  display: none;
+}
+
+.bio-scanner-box.scanning .bio-scan-line {
+  display: block;
+}
+
+@keyframes scanLineMove {
+  0% { top: 0; }
+  50% { top: 100%; }
+  100% { top: 0; }
+}
+
+.bio-scan-status {
+  font-family: var(--font-hud);
+  font-size: 11px;
+  color: var(--neon-cyan);
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Administrative OTP Authentication Grid */
+.otp-inputs-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.otp-digit-field {
+  width: 44px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-neon);
+  border-radius: 4px;
+  color: #fff;
+  font-family: var(--font-hud);
+  font-size: 20px;
+  text-align: center;
+  outline: none;
+}
+
+.otp-digit-field:focus {
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+}
+
+.otp-hint-banner {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 2px;
+}
+
+.otp-hint-banner span {
+  color: var(--neon-yellow);
+  font-weight: bold;
+}

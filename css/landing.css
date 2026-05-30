@@ -1,0 +1,196 @@
+/* Landing Page Styles for ShadowShield AI */
+
+.landing-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 60px 20px;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Background Cyber Grid Skyline */
+.skyline-canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+.skyline-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.landing-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+}
+
+.hero-header {
+  margin-top: 20px;
+}
+
+.hero-title {
+  font-family: var(--font-hud);
+  font-size: 56px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #fff 0%, var(--neon-blue) 50%, var(--neon-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.3));
+}
+
+.hero-subtitle {
+  font-family: var(--font-hud);
+  font-size: 16px;
+  color: var(--neon-cyan);
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  margin-bottom: 20px;
+  animation: pulseSubtitle 3s infinite ease-in-out;
+}
+
+@keyframes pulseSubtitle {
+  0%, 100% {
+    opacity: 0.6;
+    text-shadow: none;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: var(--text-glow-cyan);
+  }
+}
+
+.hero-description {
+  max-width: 650px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+/* Holographic Pillars Grid */
+.pillars-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.pillar-card {
+  padding: 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid rgba(0, 242, 254, 0.15);
+  transition: all var(--trans-normal);
+  background: rgba(10, 11, 16, 0.7);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.pillar-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--neon-blue);
+  box-shadow: 0 12px 30px rgba(0, 242, 254, 0.15);
+}
+
+.pillar-card.purple:hover {
+  border-color: var(--neon-purple);
+  box-shadow: 0 12px 30px rgba(177, 13, 201, 0.15);
+}
+
+.pillar-card.pink:hover {
+  border-color: var(--neon-pink);
+  box-shadow: 0 12px 30px rgba(255, 0, 127, 0.15);
+}
+
+.pillar-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 242, 254, 0.1);
+  border: 1px solid var(--neon-blue);
+  color: var(--neon-blue);
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+  font-size: 20px;
+}
+
+.pillar-card.purple .pillar-icon-wrapper {
+  background: rgba(177, 13, 201, 0.1);
+  border-color: var(--neon-purple);
+  color: var(--neon-purple);
+  box-shadow: 0 0 10px rgba(177, 13, 201, 0.2);
+}
+
+.pillar-card.pink .pillar-icon-wrapper {
+  background: rgba(255, 0, 127, 0.1);
+  border-color: var(--neon-pink);
+  color: var(--neon-pink);
+  box-shadow: 0 0 10px rgba(255, 0, 127, 0.2);
+}
+
+.pillar-title {
+  font-family: var(--font-hud);
+  font-size: 18px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pillar-desc {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Call To Action area */
+.landing-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.boot-sequence-display {
+  font-family: var(--font-hud);
+  font-size: 11px;
+  color: var(--neon-blue);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  min-height: 15px;
+  opacity: 0.8;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 38px;
+    letter-spacing: 2px;
+  }
+  .pillars-container {
+    grid-template-columns: 1fr;
+  }
+}

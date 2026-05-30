@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShadowShield AI — Ethical Surveillance and Privacy Hub</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/portal.css">
+  <link rel="stylesheet" href="css/blockchain.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/tactical.css">
+  <link rel="stylesheet" href="css/analytics.css">
+
+  <!-- PWA Standalone Support Matrix -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icons/icon-192.svg">
+  <meta name="theme-color" content="#050508">
+</head>
+<body>
+
+  <!-- Holographic Identity Verified Popup Overlay -->
+  <div id="identity-verified-popup" class="holographic-success-overlay">
+    <div class="holographic-success-card">
+      <div class="holographic-success-mesh"></div>
+      <div class="holographic-success-icon">✓</div>
+      <h3 class="holographic-success-title">IDENTITY VERIFIED</h3>
+      <p class="holographic-success-subtitle">ACCESS GRANTED TO MUNICIPAL NETWORK</p>
+      <div class="holographic-success-ledger-info">
+        <div>ROLE: <strong id="verified-role-badge">CITIZEN</strong></div>
+        <div>KEY: <strong id="verified-key-badge">0x8F9A0B</strong></div>
+      </div>
+      <div class="holographic-success-scanlines"></div>
+    </div>
+  </div>
+
+  <!-- Fullscreen App Container -->
+  <div class="app-container">
+    <div id="screen-red-flash" class="red-flash-overlay"></div>
+    <div class="scanline-sweep"></div>
+    
+    <!-- Top Critical Alert Ticker -->
+    <div id="global-alert-banner" class="global-alert-ticker" style="display: none;"></div>
+
+    <!-- Floating JARVIS AI Assistant Orb -->
+    <div id="jarvis-voice-orb-container" class="jarvis-orb-container">
+      <div class="jarvis-orb-glow"></div>
+      <div id="jarvis-voice-orb" class="jarvis-orb">
+        <div class="jarvis-orb-core"></div>
+        <div class="jarvis-orb-ring-1"></div>
+        <div class="jarvis-orb-ring-2"></div>
+      </div>
+      <div class="jarvis-orb-tooltip">SHIELD AI COMMAND</div>
+    </div>
+
+    <!-- HUD Navigation Header -->
+    <header class="hud-header">
+      <div class="hud-logo">
+        <div class="hud-logo-icon"></div>
+        <span class="hud-logo-text">SHADOWSHIELD AI</span>
+      </div>
+
+      <nav class="hud-nav">
+        <button class="hud-nav-item active" data-view="home">Sentinel Overview</button>
+        <button class="hud-nav-item" data-view="monitor">Neural Command Center</button>
+        <button class="hud-nav-item" data-view="threat">Threat Intelligence Grid</button>
+        <button class="hud-nav-item" data-view="privacy">Citizen Shield Vault</button>
+        <button class="hud-nav-item" data-view="audit">Immutable Trust Ledger</button>
+        <button class="hud-nav-item" data-view="tactical">Emergency Tactical Mode</button>
+        <button class="hud-nav-item" data-view="analytics">AI Analytics Center</button>
+        <button class="hud-nav-item" data-view="admin">Quantum Command Console</button>
+      </nav>
+
+      <div class="hud-status-panel">
+        <!-- AI Voice Equalizer dynamic waves -->
+        <div id="voice-equalizer" class="voice-wave-container" title="AI Voice Assistant Equalizer">
+          <div class="voice-wave-bar"></div>
+          <div class="voice-wave-bar"></div>
+          <div class="voice-wave-bar"></div>
+          <div class="voice-wave-bar"></div>
+          <div class="voice-wave-bar"></div>
+        </div>
+        <button id="hud-install-app-btn" class="override-btn" style="border-color:var(--neon-green); color:var(--neon-green); font-size:10px; display:none;">Install HUD</button>
+        <button id="ask-shield-ai-btn" class="override-btn" style="border-color:var(--neon-blue); font-size:10px;">Ask AI</button>
+        <button id="hud-logout-btn" class="override-btn" style="border-color:var(--neon-red); font-size:10px;">Log Out</button>
+
+        <div id="system-status-indicator-panel" class="hud-system-status">
+          <div class="hud-system-status-indicator"></div>
+          <span id="system-status-label">SHIELD: ACTIVE</span>
+        </div>
+        <div id="hud-clock-time" class="hud-clock">0000-00-00 00:00:00 UTC</div>
+      </div>
+    </header>
+
+    <!-- Main Viewport Section -->
+    <main class="view-viewport">
+
+      <!-- ==================== VIEW 1: HOME ==================== -->
+      <section id="home-view" class="view-section active">
+        <div class="landing-section">
+          <!-- Digital Twin Smart City Holographic Grid Canvas -->
+          <div class="digital-twin-map-container" style="position: relative; width: 100%; height: 360px; background: rgba(5, 5, 8, 0.45); border: 1px dashed rgba(0, 242, 254, 0.25); border-radius: 8px; overflow: hidden; margin-top: 15px; margin-bottom: 25px; box-shadow: inset 0 0 20px rgba(0, 242, 254, 0.05);">
+            <canvas id="digital-twin-grid-canvas" style="width: 100%; height: 100%; display: block;"></canvas>
+            <!-- High-tech HUD controls overlaying the map -->
+            <div style="position: absolute; top: 15px; left: 15px; font-family: var(--font-hud); font-size: 10px; color: var(--neon-cyan); text-shadow: var(--text-glow-blue); pointer-events: none; background: rgba(0,0,0,0.7); padding: 6px 12px; border: 1px solid rgba(0,242,254,0.3); border-radius: 2px;">
+              <span>MUNICIPAL DIGITAL TWIN GRID v4.2</span><br>
+              <span id="map-satellite-status" style="font-size: 8px; color: var(--text-secondary);">SATELLITE SYNC: ACTIVE (99.8%)</span>
+            </div>
+            <div style="position: absolute; bottom: 15px; right: 15px; font-family: var(--font-hud); font-size: 10px; color: var(--neon-purple); background: rgba(0,0,0,0.7); padding: 6px 12px; border: 1px solid rgba(177,13,201,0.3); border-radius: 2px; pointer-events: none; text-align: right;">
+              <span>ACTIVE THREAT PROBABILITY HEATMAP</span><br>
+              <span id="active-heatmap-label" style="font-size: 8px; color: var(--neon-green);">ALL SECTORS SECURED</span>
+            </div>
+          </div>
+
+          <div class="landing-content">
+            <div class="hero-header">
+              <h1 class="hero-title">SHADOWSHIELD AI</h1>
+              <div class="hero-subtitle">Smart Surveillance Privacy Matrix</div>
+              <p class="hero-description">
+                A government-grade, decentralized AI surveillance framework that optimizes municipal safety protocols while enforcing absolute, cryptographically verified citizen anonymity.
+              </p>
+            </div>
+
+            <div class="pillars-container">
+              <!-- Pillar 1 -->
+              <div class="pillar-card glass-panel">
+                <div class="pillar-icon-wrapper">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                    <circle cx="12" cy="13" r="4"/>
+                  </svg>
+                </div>
+                <h3 class="pillar-title">Zero-Trust Feeds</h3>
+                <p class="pillar-desc">CCTV video analytics identify dynamic safety events while encrypting and pixelating all civil identifying data locally at the boundary node.</p>
+              </div>
+              <!-- Pillar 2 -->
+              <div class="pillar-card glass-panel purple">
+                <div class="pillar-icon-wrapper">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                  </svg>
+                </div>
+                <h3 class="pillar-title">Warrant Crypt</h3>
+                <p class="pillar-desc">Strict authorization protocols. Facial unblur triggers require verified court warrants validated by multi-sig administrative keys.</p>
+              </div>
+              <!-- Pillar 3 -->
+              <div class="pillar-card glass-panel pink">
+                <div class="pillar-icon-wrapper">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                    <polyline points="2 17 12 22 22 17"/>
+                    <polyline points="2 12 12 17 22 12"/>
+                  </svg>
+                </div>
+                <h3 class="pillar-title">Blockchain Audit</h3>
+                <p class="pillar-desc">Every administrative query, warrant validation, and unmasking event is logged to an immutable ledger for legal oversight board audits.</p>
+              </div>
+            </div>
+
+            <div class="landing-cta">
+              <button class="cyber-btn" onclick="navigateToView('monitor')">
+                Enter Command Deck
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </button>
+              <div id="landing-boot-log" class="boot-sequence-display">INITIALIZING CLIENT SYSTEM MODULE...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 2: COMMAND DECK (MONITOR) ==================== -->
+      <section id="monitor-view" class="view-section">
+        <div id="monitor-view-lock" class="view-lock-overlay" style="display:none;">
+          <svg class="lock-shield-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <h3 class="lock-title">RESTRICTED COMMAND CENTER</h3>
+          <p class="lock-subtitle">Security clearance required. Log in as Command Authority to unlock this monitor deck feed.</p>
+        </div>
+        <div class="dashboard-layout">
+          <!-- Main CCTV Grid area -->
+          <div class="dashboard-main-area">
+            
+            <!-- Real-Time Dashboard Live Telemetry Stats Bar -->
+            <div class="dashboard-telemetry-bar">
+              <div class="telemetry-card">
+                <span class="telemetry-label">AI Threat Accuracy</span>
+                <span class="telemetry-value"><span id="telemetry-accuracy">99.2</span><span class="telemetry-unit">%</span></span>
+              </div>
+              <div class="telemetry-card">
+                <span class="telemetry-label">Threats Prevented</span>
+                <span class="telemetry-value" id="telemetry-prevented">1,482</span>
+              </div>
+              <div class="telemetry-card">
+                <span class="telemetry-label">Active Surveillance Cameras</span>
+                <span class="telemetry-value">128<span class="telemetry-unit">/ 128</span></span>
+              </div>
+              <div class="telemetry-card">
+                <span class="telemetry-label">Privacy Shield Index</span>
+                <span class="telemetry-value" style="color: var(--neon-green); text-shadow: 0 0 8px rgba(0,230,118,0.4);"><span id="telemetry-privacy">99.8</span><span class="telemetry-unit">%</span></span>
+              </div>
+            </div>
+
+            <div class="cctv-grid">
+              
+              <!-- Cam 01 -->
+              <div id="cam-01-panel" class="camera-feed-panel" style="min-height: 480px;">
+                <div class="camera-hud-header">
+                  <span class="camera-title-tag"><div class="camera-status-dot"></div>CAM 01: <span id="cam-01-channel-title" style="color:var(--neon-cyan)">LOBBY</span></span>
+                  <div class="camera-diagnostics-text"><span>FPS: 60</span><span>12ms</span><span>SECURE</span></div>
+                </div>
+                
+                <!-- Channel Selector Tabs -->
+                <div class="cctv-channels-tab-bar" style="display: flex; background: rgba(0,0,0,0.5); border-bottom: 1px solid rgba(0,242,254,0.15); padding: 4px; gap: 4px; flex-wrap: wrap;">
+                  <button class="cctv-channel-btn active" data-channel="plaza" style="font-family: var(--font-hud); font-size: 8px; padding: 4px 8px; background: rgba(0, 242, 254, 0.15); border: 1px solid var(--border-neon); color: var(--neon-cyan); cursor: pointer; border-radius: 2px;">LOBBY</button>
+                  <button class="cctv-channel-btn" data-channel="retail" style="font-family: var(--font-hud); font-size: 8px; padding: 4px 8px; background: transparent; border: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); cursor: pointer; border-radius: 2px;">RETAIL</button>
+                  <button class="cctv-channel-btn" data-channel="perimeter" style="font-family: var(--font-hud); font-size: 8px; padding: 4px 8px; background: transparent; border: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); cursor: pointer; border-radius: 2px;">PERIMETER</button>
+                  <button class="cctv-channel-btn" data-channel="street" style="font-family: var(--font-hud); font-size: 8px; padding: 4px 8px; background: transparent; border: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); cursor: pointer; border-radius: 2px;">STREET</button>
+                  <button class="cctv-channel-btn" data-channel="drone" style="font-family: var(--font-hud); font-size: 8px; padding: 4px 8px; background: transparent; border: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); cursor: pointer; border-radius: 2px;">DRONE</button>
+                  <button id="webcam-channel-btn" class="cctv-channel-btn" data-channel="webcam" style="font-family: var(--font-hud); font-size: 8px; padding: 4px 8px; background: transparent; border: 1px solid rgba(0,242,254,0.1); color: var(--neon-blue); cursor: pointer; border-radius: 2px; font-weight: bold;">LIVE WEBCAM</button>
+                </div>
+
+                <div style="position: relative; width: 100%;">
+                  <!-- Hidden video element for live webcam stream -->
+                  <video id="cctv-webcam-stream" autoplay playsinline style="display:none;"></video>
+                  <canvas id="cam-01-canvas" class="camera-canvas"></canvas>
+                </div>
+                
+                <!-- CCTV Controls (Checkbox Toggles & Filters) -->
+                <div class="cctv-controls-hud" style="background: rgba(0,0,0,0.6); padding: 8px; border-top: 1px solid rgba(0,242,254,0.15); display: flex; flex-direction: column; gap: 6px; font-family: var(--font-hud); font-size: 8px;">
+                  <!-- Overlays Toggles -->
+                  <div style="display: flex; justify-content: space-between; align-items: center; color: #fff;">
+                    <label style="display: flex; align-items: center; gap: 4px; cursor: pointer;">
+                      <input type="checkbox" id="cctv-toggle-bboxes" checked style="accent-color: var(--neon-cyan);"> Bounding Boxes
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 4px; cursor: pointer;">
+                      <input type="checkbox" id="cctv-toggle-vectors" checked style="accent-color: var(--neon-purple);"> Velocity Vectors
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 4px; cursor: pointer;">
+                      <input type="checkbox" id="cctv-toggle-blur" checked style="accent-color: var(--neon-blue);"> Privacy Blur
+                    </label>
+                  </div>
+                  <!-- Render Filter Modes -->
+                  <div style="display: flex; gap: 6px; justify-content: space-between; margin-top: 2px;">
+                    <button class="cctv-filter-btn active" data-filter="normal" style="flex: 1; padding: 4px; background: rgba(0, 242, 254, 0.15); border: 1px solid var(--border-neon); color: var(--neon-cyan); cursor: pointer; border-radius: 2px;">NORMAL</button>
+                    <button class="cctv-filter-btn" data-filter="night" style="flex: 1; padding: 4px; background: transparent; border: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); cursor: pointer; border-radius: 2px;">NIGHT VISION</button>
+                    <button class="cctv-filter-btn" data-filter="thermal" style="flex: 1; padding: 4px; background: transparent; border: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); cursor: pointer; border-radius: 2px;">THERMAL</button>
+                    <button class="cctv-filter-btn" data-filter="wireframe" style="flex: 1; padding: 4px; background: transparent; border: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); cursor: pointer; border-radius: 2px;">WIREFRAME</button>
+                  </div>
+                </div>
+
+                <div class="camera-hud-footer">
+                  <span class="anonymity-badge" id="cctv-mask-status-badge">ANONYMITY PROTECT ACTIVE</span>
+                  <button id="override-btn-01" class="override-btn">Warrant Bypass</button>
+                </div>
+              </div>
+
+              <!-- Cam 02 -->
+              <div id="cam-02-panel" class="camera-feed-panel">
+                <div class="camera-hud-header">
+                  <span class="camera-title-tag"><div class="camera-status-dot"></div>CAM 02: NORTH TUNNEL</span>
+                  <div class="camera-diagnostics-text"><span>FPS: 60</span><span>10ms</span><span>SECURE</span></div>
+                </div>
+                <canvas id="cam-02-canvas" class="camera-canvas"></canvas>
+                <div class="camera-hud-footer">
+                  <span class="anonymity-badge">ANONYMITY PROTECT ACTIVE</span>
+                  <span class="warrant-badge missing" style="font-size:8px;">ALARM SCAN ZONE</span>
+                </div>
+              </div>
+
+              <!-- Cam 03 -->
+              <div id="cam-03-panel" class="camera-feed-panel">
+                <div class="camera-hud-header">
+                  <span class="camera-title-tag"><div class="camera-status-dot"></div>CAM 03: METRO STATION</span>
+                  <div class="camera-diagnostics-text"><span>FPS: 60</span><span>15ms</span><span>SECURE</span></div>
+                </div>
+                <canvas id="cam-03-canvas" class="camera-canvas"></canvas>
+                <div class="camera-hud-footer">
+                  <span class="anonymity-badge">HEATMAP ANALYSIS</span>
+                  <span class="warrant-badge valid" style="font-size: 8px;">DENSITY TRACKER</span>
+                </div>
+              </div>
+
+              <!-- Cam 04 -->
+              <div id="cam-04-panel" class="camera-feed-panel">
+                <div class="camera-hud-header">
+                  <span class="camera-title-tag"><div class="camera-status-dot"></div>CAM 04: EAST GATE</span>
+                  <div class="camera-diagnostics-text"><span>FPS: 60</span><span>9ms</span><span>SECURE</span></div>
+                </div>
+                <canvas id="cam-04-canvas" class="camera-canvas"></canvas>
+                <div class="camera-hud-footer">
+                  <span class="anonymity-badge">ANONYMITY PROTECT ACTIVE</span>
+                  <span class="warrant-badge valid" style="font-size:8px;">VECTOR DETECTOR</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Ethical AI Explanation Panel -->
+            <div class="glass-panel hud-border" style="padding: 12px 16px; border-color: rgba(0, 242, 254, 0.25); position: relative; overflow: hidden; background: rgba(5, 5, 8, 0.5);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <h4 class="hud-title" style="margin: 0; font-size: 11px; color: var(--neon-cyan); display: flex; align-items: center; gap: 6px;">
+                  <span style="display: inline-block; width: 6px; height: 6px; background-color: var(--neon-cyan); border-radius: 50%; box-shadow: 0 0 8px var(--neon-cyan); animation: flashStatus 0.8s infinite alternate;"></span>
+                  ETHICAL AI EXPLANATION ENGINE (REAL-TIME PRIVACY VS SAFETY AUDIT)
+                </h4>
+                <span class="cyber-badge success" id="ethical-status-badge" style="font-size: 8px; font-family: monospace;">PRIVACY MATRIX STABLE</span>
+              </div>
+              <div id="ethical-explanation-timeline" style="display: flex; flex-direction: column; gap: 6px; font-family: monospace; font-size: 10px; line-height: 1.4; max-height: 90px; overflow-y: auto; padding-right: 4px;">
+                <!-- Logs will be prepended here in real time -->
+                <div class="ethical-log-item" style="border-left: 2px solid var(--neon-green); padding-left: 8px; color: #fff;">
+                  <span style="color: var(--neon-green); font-weight: bold;">[PRIVACY ENFORCED]</span> <span style="color: var(--text-secondary);">CAM 01 central plaza:</span> Face data hidden and scrambled. Zero-trust check positive: No weapon-like objects or criminal behaviors detected.
+                </div>
+                <div class="ethical-log-item" style="border-left: 2px solid var(--neon-green); padding-left: 8px; color: #fff;">
+                  <span style="color: var(--neon-green); font-weight: bold;">[PRIVACY ENFORCED]</span> <span style="color: var(--text-secondary);">CAM 03 metro station:</span> All citizen identities anonymized via pixelated mask overrides. Public transport crowd load: 42% (Normal).
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Side controls panel -->
+          <div class="dashboard-side-panel">
+            <!-- Radar tracker -->
+            <div class="glass-panel radar-panel hud-border">
+              <h4 class="hud-title">Live Tracking Radar</h4>
+              <div class="radar-canvas-container">
+                <canvas id="radar-screen-canvas" class="radar-canvas"></canvas>
+              </div>
+              <div class="radar-stats">
+                <div class="radar-stat-item">
+                  Targets
+                  <span>14 Active</span>
+                </div>
+                <div class="radar-stat-item">
+                  Security
+                  <span>99.4%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Incident logger -->
+            <div class="glass-panel incident-logger hud-border purple">
+              <h4 class="hud-title purple">System Access Logs</h4>
+              <div id="log-scroll-area" class="log-scroll-area">
+                <!-- Javascript will populate entries -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 3: THREAT CENTER ==================== -->
+      <section id="threat-view" class="view-section">
+        <div id="threat-view-lock" class="view-lock-overlay" style="display:none;">
+          <svg class="lock-shield-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <h3 class="lock-title">RESTRICTED SECURITY CONSOLE</h3>
+          <p class="lock-subtitle">Access blocked. AI Weapon and incident tracking requires authority clearance levels.</p>
+        </div>
+        <div class="threat-grid-layout">
+          <!-- Main visual analyzer feeds -->
+          <div class="threat-view-container">
+            <canvas id="threat-canvas-feed" class="threat-canvas"></canvas>
+            <div class="threat-reticle-overlay"></div>
+            <div class="threat-target-tag">AWAITING SYSTEM SCAN</div>
+          </div>
+
+          <!-- AI Threat analysis info panels -->
+          <div class="threat-meta-panel">
+            <div class="glass-panel hud-border danger" style="padding: 20px;">
+              <h4 class="hud-title danger">AI Object Threat Analysis</h4>
+              
+              <div class="ai-threat-meter-container">
+                <svg class="ai-radial-svg">
+                  <circle class="radial-bg-circle" cx="75" cy="75" r="70"></circle>
+                  <circle id="ai-threat-gauge" class="radial-active-circle" cx="75" cy="75" r="70"></circle>
+                </svg>
+                <div class="ai-meter-text">
+                  <span id="ai-threat-percentage" class="ai-meter-percentage">0%</span>
+                  <span class="ai-meter-label">Risk confidence</span>
+                </div>
+              </div>
+
+              <div class="cyber-data-card" style="margin-top: 10px;">
+                <span class="cyber-data-header">Target Alert Severity</span>
+                <span id="ai-threat-level-badge" class="cyber-badge info">SYSTEM INACTIVE</span>
+              </div>
+
+              <div class="cyber-data-card">
+                <span class="cyber-data-header">Classification Type</span>
+                <span id="ai-threat-type" class="cyber-data-value red">NONE DETECTED</span>
+              </div>
+            </div>
+
+            <!-- AI Ethical Decision Engine & Predictive Threat Alerts -->
+            <div class="glass-panel hud-border purple" style="padding: 16px; margin-top: 10px; border-color: var(--border-purple);">
+              <h4 class="hud-title purple" style="font-size: 11px;">Ethical AI Decision Log</h4>
+              <div id="ai-ethical-decision-card" style="background: rgba(0,0,0,0.5); border: 1px solid rgba(177,13,201,0.25); border-radius: 4px; padding: 10px; font-family: monospace; font-size: 8px; line-height: 1.4; color: var(--text-secondary); max-height: 110px; overflow-y: auto;">
+                <span style="color: var(--neon-purple); font-weight:bold;">[AI OVERWATCH ACTIVE]</span><br>
+                <span>Status: Privacy protection activated because no criminal activity was detected. Zero-Trust Anonymization Matrix secured.</span>
+              </div>
+            </div>
+
+            <div class="threat-actions-panel" style="margin-top: 10px;">
+              <button id="trigger-threat-sim-btn" class="cyber-btn danger">Simulate Intruder</button>
+              <button class="cyber-btn" onclick="navigateToView('monitor')">Return Deck</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 4: CITIZEN PRIVACY PORTAL ==================== -->
+      <section id="privacy-view" class="view-section">
+        <div class="portal-grid-layout">
+          <!-- Left metrics layout -->
+          <div class="portal-left-panel">
+            <!-- Privacy Radial Gauge -->
+            <div class="glass-panel score-gauge-card hud-border">
+              <h4 class="hud-title">Citizen Trust Score</h4>
+              <div class="score-radial-wrapper">
+                <svg class="score-radial-svg">
+                  <circle class="score-radial-bg" cx="90" cy="90" r="80"></circle>
+                  <circle id="privacy-score-radial-fill" class="score-radial-active" cx="90" cy="90" r="80"></circle>
+                </svg>
+                <div class="score-value-display">
+                  <span id="privacy-score-num" class="score-number">98</span>
+                  <span class="score-label">Points</span>
+                </div>
+              </div>
+              <div id="privacy-score-label-text" class="score-status-text">EXCELLENT - MATRIX SECURE</div>
+            </div>
+
+            <!-- Settings adjustments -->
+            <div class="glass-panel hud-border purple" style="padding: 20px;">
+              <h4 class="hud-title purple">Privacy Matrix Rules</h4>
+              <div class="privacy-controls-list">
+                
+                <div class="control-item-card">
+                  <div class="cyber-switch">
+                    <div>
+                      <span class="cyber-switch-label">Warrant Protocol Enforcement</span>
+                      <span class="cyber-switch-sublabel">Mandates digital warrants for unblurs</span>
+                    </div>
+                    <label class="cyber-toggle">
+                      <input id="toggle-warrant-req" type="checkbox" checked>
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="control-item-card">
+                  <div class="cyber-switch">
+                    <div>
+                      <span class="cyber-switch-label">Behavioral Tracking Shield</span>
+                      <span class="cyber-switch-sublabel">Encrypts local crowd density metrics</span>
+                    </div>
+                    <label class="cyber-toggle">
+                      <input id="toggle-analytics-opt" type="checkbox" checked>
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="control-item-card">
+                  <span class="cyber-switch-label" style="display:block; margin-bottom:8px;">Camera Mask Strength</span>
+                  <select id="select-anon-level" class="blockchain-input" style="width: 100%;">
+                    <option value="STANDARD">STANDARD PIXELATE</option>
+                    <option value="MAXIMUM">MAXIMUM ANONYMITY MATRIX</option>
+                    <option value="STRICT">STRICT ZERO-TRUST SHIELD</option>
+                  </select>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Citizen Privacy Wallet -->
+            <div class="glass-panel hud-border" style="padding: 20px; margin-top: 15px; border-color: var(--neon-cyan);">
+              <h4 class="hud-title" style="color: var(--neon-cyan); font-size: 12px; margin-bottom: 5px;">Decentralized Privacy Wallet</h4>
+              <p style="font-size: 8px; color: var(--text-secondary); margin-bottom: 12px; font-family: monospace;">REGULATE SURVEILLANCE DATA REGISTRIES VIA ZK-PERMISSIONS</p>
+              
+              <div class="privacy-controls-list" style="gap: 8px;">
+                <div class="control-item-card" style="padding: 10px; background: rgba(0,0,0,0.4); border: 1px solid rgba(0,242,254,0.15);">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-size: 9px; font-family: monospace; color: #fff;">ZKP Transit Signature</span>
+                    <button id="wallet-btn-transit" class="override-btn" style="font-size: 8px; padding: 2px 8px; border-color:var(--neon-green); color:var(--neon-green);">ACTIVE</button>
+                  </div>
+                </div>
+
+                <div class="control-item-card" style="padding: 10px; background: rgba(0,0,0,0.4); border: 1px solid rgba(0,242,254,0.15);">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-size: 9px; font-family: monospace; color: #fff;">Bio-Telemetry Registry</span>
+                    <button id="wallet-btn-telemetry" class="override-btn" style="font-size: 8px; padding: 2px 8px; border-color:var(--neon-green); color:var(--neon-green);">ACTIVE</button>
+                  </div>
+                </div>
+
+                <div class="control-item-card" style="padding: 10px; background: rgba(0,0,0,0.4); border: 1px solid rgba(0,242,254,0.15);">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-size: 9px; font-family: monospace; color: #fff;">Quantum Metadata Sharing</span>
+                    <button id="wallet-btn-metadata" class="override-btn" style="font-size: 8px; padding: 2px 8px; border-color:var(--neon-green); color:var(--neon-green);">ACTIVE</button>
+                  </div>
+                </div>
+
+                <button id="wallet-btn-revoke-all" class="cyber-btn danger" style="font-size: 9px; padding: 6px; width: 100%; margin-top: 5px;">REVOKE ALL REGISTRATION ACCESS</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right logs explorer -->
+          <div class="portal-right-panel">
+            <div class="glass-panel audit-log-card hud-border">
+              <h4 class="hud-title">Data Request Verification Log</h4>
+              <div class="audit-table-viewport">
+                <table class="cyber-table">
+                  <thead>
+                    <tr>
+                      <th>Timestamp</th>
+                      <th>Requesting Agency</th>
+                      <th>Resource Query</th>
+                      <th>Scope Location</th>
+                      <th>Warrant Verification</th>
+                      <th>Action Taken</th>
+                    </tr>
+                  </thead>
+                  <tbody id="privacy-audit-table-body">
+                    <!-- Javascript will load records -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 5: AUDIT LEDGER (BLOCKCHAIN) ==================== -->
+      <section id="audit-view" class="view-section">
+        <div class="blockchain-grid-layout">
+          <!-- Main transactions view -->
+          <div class="blockchain-main-panel">
+            <!-- Node network map -->
+            <div class="glass-panel blockchain-net-card hud-border purple">
+              <h4 class="hud-title purple">Validator Node Ring Status</h4>
+              <div class="blockchain-net-viewport">
+                <canvas id="blockchain-network-canvas" class="blockchain-net-canvas"></canvas>
+              </div>
+            </div>
+
+            <!-- Block list -->
+            <div class="glass-panel blockchain-logs-card hud-border">
+              <h4 class="hud-title">Immutable Ledger Audit Stream</h4>
+              
+              <div class="blockchain-search-bar">
+                <input id="blockchain-search-input" class="blockchain-input" type="text" placeholder="Search by block action, validator key, or hash signature...">
+              </div>
+
+              <div id="blocks-feed-viewport" class="blocks-feed-viewport">
+                <!-- Javascript will load block items -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Side stats indicators -->
+          <div class="blockchain-side-panel">
+            <div class="glass-panel blockchain-metric-panel hud-border purple">
+              <h4 class="hud-title purple">Chain Diagnostics</h4>
+              <div class="blockchain-metric-list">
+                
+                <div class="cyber-data-card">
+                  <span class="cyber-data-header">Synchronized Blocks</span>
+                  <span id="ledger-total-blocks-val" class="cyber-data-value purple">1</span>
+                </div>
+
+                <div class="cyber-data-card">
+                  <span class="cyber-data-header">Network Hashrate</span>
+                  <span id="metric-hashrate" class="cyber-data-value purple">142.3 TH/s</span>
+                </div>
+
+                <div class="cyber-data-card">
+                  <span class="cyber-data-header">Merkle Root Verified</span>
+                  <span id="ledger-merkle-root" class="cyber-data-value blue" style="font-size:12px; word-break:break-all;">0x5b39912af30c885fa22...</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 6: ADMIN CONTROL PANEL ==================== -->
+      <section id="admin-view" class="view-section">
+        <div id="admin-view-lock" class="view-lock-overlay" style="display:none; flex-direction: column;">
+          <svg class="lock-shield-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 5px;">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <h3 class="lock-title" style="margin-bottom: 2px;">ShadowShield AI Command Authorization</h3>
+          <p class="lock-subtitle" style="font-size: 11px; max-width: 440px; margin-bottom: 12px; color: var(--text-secondary);">Terminal locked in secure read-only mode. Enter verified security credentials to initialize command operations.</p>
+          
+          <!-- Demonstration Credentials -->
+          <div class="demo-passwords-box" style="font-family: monospace; font-size: 8px; color: var(--text-secondary); background: rgba(0,0,0,0.5); border: 1px dashed rgba(0,242,254,0.2); padding: 8px 12px; border-radius: 4px; margin-bottom: 15px; width: 100%; max-width: 320px; text-align: left; line-height: 1.4;">
+            <span style="font-family: var(--font-hud); color: var(--neon-cyan); display: block; margin-bottom: 4px; text-align: center; letter-spacing: 1px;">DEMONSTRATION CREDENTIALS</span>
+            <div>• Officer: <strong style="color: var(--neon-green)">officer</strong> / <strong style="color: var(--neon-green)">shield123</strong></div>
+            <div>• Investigator: <strong style="color: var(--neon-blue)">agent</strong> / <strong style="color: var(--neon-blue)">shield456</strong></div>
+            <div>• Architect: <strong style="color: var(--neon-purple)">admin</strong> / <strong style="color: var(--neon-purple)">shield789</strong></div>
+          </div>
+
+          <!-- Credentials Form Inputs -->
+          <div style="display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 320px; text-align: left; margin-bottom: 10px;">
+            <div style="display: flex; flex-direction: column; gap: 3px;">
+              <label style="font-family: var(--font-hud); font-size: 8px; color: var(--neon-cyan); letter-spacing: 0.5px;">Security Identifier (Username)</label>
+              <input type="text" id="admin-lock-username" class="blockchain-input" placeholder="e.g. admin" style="width: 100%; font-size: 11px; padding: 8px; background: rgba(0,0,0,0.5); border: 1px solid rgba(0,242,254,0.25); color: #fff; font-family: monospace;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 3px;">
+              <label style="font-family: var(--font-hud); font-size: 8px; color: var(--neon-cyan); letter-spacing: 0.5px;">Cryptographic Session Pass (Password)</label>
+              <input type="password" id="admin-lock-password" class="blockchain-input" placeholder="••••••••" style="width: 100%; font-size: 11px; padding: 8px; background: rgba(0,0,0,0.5); border: 1px solid rgba(0,242,254,0.25); color: #fff; font-family: monospace;">
+            </div>
+          </div>
+
+          <div id="admin-lock-error" class="scanner-tag-status" style="color: var(--neon-red); font-size: 9px; display: none; margin: 2px 0 10px 0; text-shadow: var(--text-glow-red); text-transform: uppercase;">INVALID CREDENTIALS. ACCESS DENIED.</div>
+
+          <button id="admin-lock-login-btn" class="cyber-btn" style="width: 100%; max-width: 320px; font-size: 11px; padding: 10px 16px;">INITIALIZE CORE SHELL</button>
+        </div>
+        <div class="admin-grid-layout">
+          
+          <div class="glass-panel admin-panel-card hud-border">
+            <h4 class="hud-title danger">Override Controls</h4>
+            <div class="admin-switches-group">
+              
+              <div class="control-item-card" style="border-color: rgba(255,56,96,0.15);">
+                <div class="cyber-switch">
+                  <div>
+                    <span class="cyber-switch-label" style="color: var(--neon-red);">EMERGENCY SYSTEM LOCKDOWN</span>
+                    <span class="cyber-switch-sublabel">Forces global anonymity, sounds sirens, locking shields</span>
+                  </div>
+                  <label class="cyber-toggle">
+                    <input id="toggle-emergency-lockdown" type="checkbox">
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="control-item-card">
+                <div class="cyber-switch">
+                  <div>
+                    <span class="cyber-switch-label">Enforce Global Mask Matrix</span>
+                    <span class="cyber-switch-sublabel">Forces immediate masking across all devices</span>
+                  </div>
+                  <label class="cyber-toggle">
+                    <input id="toggle-force-anonymity" type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="glass-panel admin-panel-card hud-border purple">
+            <h4 class="hud-title purple">System Integrity Monitoring</h4>
+            
+            <div class="cyber-data-card">
+              <span class="cyber-data-header">CPU Cluster Temperature</span>
+              <span id="metric-cpu-temp" class="cyber-data-value blue">42.0°C</span>
+            </div>
+
+            <div class="cyber-data-card">
+              <span class="cyber-data-header">Average Thread Core Load</span>
+              <span id="metric-cpu-load" class="cyber-data-value blue">28.4%</span>
+            </div>
+
+            <div class="cyber-data-card">
+              <span class="cyber-data-header">Dynamic Shield Status</span>
+              <span id="admin-shield-status" class="cyber-badge success">ALL CORE SHIELDS SECURED</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 7: EMERGENCY TACTICAL MODE ==================== -->
+      <section id="tactical-view" class="view-section">
+        <div id="tactical-view-lock" class="view-lock-overlay" style="display:none;">
+          <svg class="lock-shield-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <h3 class="lock-title">RESTRICTED TACTICAL PORTAL</h3>
+          <p class="lock-subtitle">Access blocked. Emergency containment features require Command Admin clearance levels.</p>
+        </div>
+        <div class="tactical-grid-layout">
+          <!-- Left side: Live coordinate tracking grid -->
+          <div class="tactical-map-panel glass-panel danger hud-border">
+            <h4 class="hud-title danger">Tactical Intercept Grid v1.0</h4>
+            <div class="tactical-radar-container">
+              <canvas id="tactical-targeting-canvas" class="tactical-targeting-canvas"></canvas>
+              <div class="tactical-grid-sweeper"></div>
+            </div>
+            <div class="tactical-status-readout">
+              <div style="display:flex; justify-content:space-between; margin-bottom: 4px;">
+                <span>Containment Sector:</span>
+                <span style="color:var(--neon-red); font-weight:bold;">SECTOR 07</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; margin-bottom: 4px;">
+                <span>Drone Intercept ETA:</span>
+                <span id="tactical-drone-eta" style="color:var(--neon-yellow); font-weight:bold;">0.0s</span>
+              </div>
+              <div style="display:flex; justify-content:space-between;">
+                <span>Intruder Coordinates:</span>
+                <span id="tactical-intruder-coords" style="color:var(--neon-red); font-family:monospace;">X: 0.00 Y: 0.00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right side: Response timeline & lockdown progress -->
+          <div class="tactical-response-panel">
+            <!-- AI Lockdown Sequence checklist -->
+            <div class="glass-panel danger hud-border" style="padding:16px; margin-bottom:15px;">
+              <h4 class="hud-title danger" style="font-size:12px;">AI Lockdown Sequence</h4>
+              <div class="lockdown-checklist" style="display:flex; flex-direction:column; gap:8px; font-family:monospace; font-size:10px;">
+                <div class="checklist-item" id="chk-network">
+                  <span class="chk-status">[ ]</span> 1. SEVER OUTSIDE NETWORKS
+                </div>
+                <div class="checklist-item" id="chk-anonymity">
+                  <span class="chk-status">[ ]</span> 2. FORCE CIVILIAN ANONYMITY
+                </div>
+                <div class="checklist-item" id="chk-drone">
+                  <span class="chk-status">[ ]</span> 3. DEPLOY PATROL DRONE SEC-07
+                </div>
+                <div class="checklist-item" id="chk-dispatch">
+                  <span class="chk-status">[ ]</span> 4. DISPATCH INTERCEPT SQUAD
+                </div>
+              </div>
+            </div>
+
+            <!-- Response timeline log -->
+            <div class="glass-panel purple hud-border" style="padding:16px; flex:1; display:flex; flex-direction:column; min-height:220px;">
+              <h4 class="hud-title purple" style="font-size:12px;">Real-Time Response Timeline</h4>
+              <div id="tactical-timeline-logs" class="tactical-timeline-logs" style="flex:1; overflow-y:auto; font-family:monospace; font-size:9.5px; display:flex; flex-direction:column; gap:6px; line-height:1.4; padding-right:4px;">
+                <div class="timeline-log-item" style="color:var(--text-secondary);">Awaiting tactical threat signal...</div>
+              </div>
+            </div>
+
+            <!-- Manual Override Actions -->
+            <div style="display:flex; gap:8px; margin-top:10px;">
+              <button onclick="window.closeGlobalAlertPopup()" class="cyber-btn danger" style="flex:1; font-size:10px; padding:10px;">Acknowledge & Clear</button>
+              <button onclick="window.navigateToView('monitor')" class="cyber-btn" style="flex:1; font-size:10px; padding:10px;">Monitor Deck</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIEW 8: AI ANALYTICS CENTER ==================== -->
+      <section id="analytics-view" class="view-section">
+        <div id="analytics-view-lock" class="view-lock-overlay" style="display:none;">
+          <svg class="lock-shield-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <h3 class="lock-title">RESTRICTED DATA CONSOLE</h3>
+          <p class="lock-subtitle">Access blocked. Predictive crime telemetry logs require active authority keys.</p>
+        </div>
+        <div class="analytics-grid-layout">
+          <!-- Main Chart Section -->
+          <div class="analytics-chart-card glass-panel hud-border purple">
+            <h4 class="hud-title purple">Predictive Surveillance Risk Analytics</h4>
+            <div class="canvas-chart-wrapper" style="position:relative; width:100%; height:250px; background:rgba(5,5,8,0.5); border:1px solid rgba(177,13,201,0.2); border-radius:4px; padding:10px; margin-bottom:15px;">
+              <canvas id="surveillance-risk-chart" style="width:100%; height:100%; display:block;"></canvas>
+            </div>
+            <!-- Statistics matrix -->
+            <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;">
+              <div class="cyber-data-card" style="margin:0; padding:10px;">
+                <span class="cyber-data-header" style="font-size:8px;">Avg Crowd Density</span>
+                <span class="cyber-data-value blue" style="font-size:14px;" id="analytics-density">48.2%</span>
+              </div>
+              <div class="cyber-data-card" style="margin:0; padding:10px;">
+                <span class="cyber-data-header" style="font-size:8px;">ZKP Validation Rate</span>
+                <span class="cyber-data-value purple" style="font-size:14px;" id="analytics-validation">99.98%</span>
+              </div>
+              <div class="cyber-data-card" style="margin:0; padding:10px;">
+                <span class="cyber-data-header" style="font-size:8px;">Predictive Safe Rating</span>
+                <span class="cyber-data-value green" style="font-size:14px; color:var(--neon-green); text-shadow:0 0 8px rgba(0,230,118,0.4);" id="analytics-rating">A+ SECURE</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right side: Drone management and system telemetry -->
+          <div class="analytics-side-panel" style="display:flex; flex-direction:column; gap:20px;">
+            <!-- Drone Deployment Module -->
+            <div class="glass-panel hud-border" style="padding:16px;">
+              <h4 class="hud-title">Tactical Drone Deployment</h4>
+              <div class="drone-console-viewport" style="position:relative; height:130px; background:rgba(0,0,0,0.6); border:1px solid rgba(0,242,254,0.15); border-radius:4px; margin-bottom:10px; overflow:hidden;">
+                <canvas id="drone-console-canvas" style="width:100%; height:100%; display:block;"></canvas>
+              </div>
+              <button id="analytics-deploy-drone-btn" class="cyber-btn" style="width:100%; font-size:10px; padding:10px;">LAUNCH TACTICAL DRONE v3.9</button>
+            </div>
+
+            <!-- Satellite Telemetry and municipal metrics -->
+            <div class="glass-panel hud-border purple" style="padding:16px; flex:1; display:flex; flex-direction:column; justify-content:space-between;">
+              <h4 class="hud-title purple" style="font-size:12px;">Satellite Telemetry Nodes</h4>
+              <div class="satellite-metrics-list" style="display:flex; flex-direction:column; gap:8px; font-family:monospace; font-size:10px;">
+                <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:4px;">
+                  <span>Orbital Sync Rank:</span>
+                  <span style="color:var(--neon-blue);">SATELLITE v9.8</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:4px;">
+                  <span>Aperture Resolution:</span>
+                  <span style="color:var(--neon-blue);">8K MULTI-BAND</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:4px;">
+                  <span>Transmission Load:</span>
+                  <span id="telemetry-trans-load" style="color:var(--neon-purple);">428.6 Mb/s</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:4px;">
+                  <span>L oversight validation:</span>
+                  <span style="color:var(--neon-green);">VERIFIED SECURE</span>
+                </div>
+              </div>
+              <div class="satellite-orbit-animation-container" style="display:flex; justify-content:center; align-items:center; height:70px; position:relative; margin-top:5px;">
+                <canvas id="satellite-orbit-canvas" style="width:140px; height:70px; display:block;"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ==================== ADMINISTRATIVE OVERLAY MODALS ==================== -->
+
+  <!-- Modal 1: Biometric Verification -->
+  <div id="biometric-modal" class="modal-overlay">
+    <div class="modal-container danger">
+      <div class="modal-header">
+        <span class="modal-title" style="color: var(--neon-red);">Biometric Verification Required</span>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="otp-hint-banner">
+        <span>SECURITY WARNING:</span> Anonymization bypass is classified as high sensitivity. Biometrics will write validation signature keys permanently to the ledger.
+      </div>
+      <div id="bio-scanner-container" class="bio-scanner-box">
+        <!-- SVG Fingerprint graphic -->
+        <svg class="bio-fingerprint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2a10 10 0 0 1 8 8c0 4.5-3 6.5-5 9.5m-3-19.5c-4.5.5-8 4-8 9.5 0 2 1.5 3 2.5 5 1.5 3 1.5 5 1 7"/>
+          <path d="M12 6a6 6 0 0 1 5.5 6c0 3-1.5 4.5-3.5 6.5s-2.5 3.5-3 5"/>
+          <path d="M12 10a2 2 0 0 1 2 2c0 1.5-.5 2.5-1.5 3.5S11.5 17 11 19"/>
+          <circle cx="12" cy="12" r="0.5"/>
+        </svg>
+        <div class="bio-scan-line"></div>
+      </div>
+      <div id="bio-scan-status-text" class="bio-scan-status">Awaiting Fingerprint Scan...</div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Administrative One-Time Passcode -->
+  <div id="otp-modal" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <span class="modal-title">Enter Admin Passcode (OTP)</span>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="otp-hint-banner">
+        Passcode dispatched to validator terminal: <span id="otp-code-hint" style="letter-spacing:2px;">----</span>
+      </div>
+      <div class="otp-inputs-row">
+        <input type="text" maxlength="1" class="otp-digit-field">
+        <input type="text" maxlength="1" class="otp-digit-field">
+        <input type="text" maxlength="1" class="otp-digit-field">
+        <input type="text" maxlength="1" class="otp-digit-field">
+      </div>
+      <div class="bio-scan-status" style="color: var(--text-secondary); margin-top:0;">Input 4-digit code to log signature.</div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Footage Decryption Authorization Virtual Keypad Modal -->
+  <div id="decryption-modal" class="modal-overlay">
+    <div class="modal-container" style="max-width: 400px; gap: 14px;">
+      <div class="modal-header">
+        <span class="modal-title" style="color: var(--neon-cyan);">Footage Decryption Authorization</span>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="otp-hint-banner" style="font-size: 10px; line-height: 1.3;">
+        <span>CLEARANCE PROTOCOL:</span> Verified security clearance required to decrypt masked biometric channels on CAM 01. Verification generates cryptographic unblur tokens.
+      </div>
+      
+      <!-- Clearance Selectors -->
+      <div style="display: flex; gap: 8px; width: 100%;">
+        <div style="display: flex; flex-direction: column; gap: 3px; flex: 1;">
+          <label style="font-family: var(--font-hud); font-size: 8px; color: var(--neon-cyan); letter-spacing: 0.5px;">Clearance level</label>
+          <select id="decrypt-clearance-select" class="blockchain-input" style="width: 100%; font-size: 10px; padding: 6px; background: rgba(0,0,0,0.5); border: 1px solid rgba(0,242,254,0.25); color: #fff; font-family: monospace;">
+            <option value="officer">Officer Level Clearance (shield123)</option>
+            <option value="agent">Investigator Level Clearance (shield456)</option>
+            <option value="admin">Architect Command Level (shield789)</option>
+          </select>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 3px; flex: 1;">
+          <label style="font-family: var(--font-hud); font-size: 8px; color: var(--neon-cyan); letter-spacing: 0.5px;">Decryption Purpose</label>
+          <select id="decrypt-purpose-select" class="blockchain-input" style="width: 100%; font-size: 10px; padding: 6px; background: rgba(0,0,0,0.5); border: 1px solid rgba(0,242,254,0.25); color: #fff; font-family: monospace;">
+            <option value="threat">Active threat tracking</option>
+            <option value="audit">Forensic Audit request</option>
+            <option value="consent">Citizen consent verification</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- PIN Input Code Display -->
+      <div style="display: flex; flex-direction: column; gap: 4px; width: 100%;">
+        <label style="font-family: var(--font-hud); font-size: 8px; color: var(--neon-cyan); letter-spacing: 0.5px; text-align: center;">Input Security clearance Passcode / PIN</label>
+        <div id="decrypt-pin-display" style="font-family: monospace; font-size: 20px; color: var(--neon-blue); letter-spacing: 6px; border: 1px solid rgba(0,242,254,0.25); padding: 8px; background: rgba(0,0,0,0.6); border-radius: 4px; text-align: center; height: 38px; text-shadow: var(--text-glow-blue); display: flex; align-items: center; justify-content: center;"></div>
+      </div>
+
+      <!-- Glassmorphic Keypad Grid -->
+      <div class="keypad-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; width: 100%; max-width: 220px; margin: 0 auto;">
+        <button class="keypad-btn cyber-btn" data-val="1" style="padding: 6px; font-size: 12px; font-family: monospace;">1</button>
+        <button class="keypad-btn cyber-btn" data-val="2" style="padding: 6px; font-size: 12px; font-family: monospace;">2</button>
+        <button class="keypad-btn cyber-btn" data-val="3" style="padding: 6px; font-size: 12px; font-family: monospace;">3</button>
+        <button class="keypad-btn cyber-btn" data-val="4" style="padding: 6px; font-size: 12px; font-family: monospace;">4</button>
+        <button class="keypad-btn cyber-btn" data-val="5" style="padding: 6px; font-size: 12px; font-family: monospace;">5</button>
+        <button class="keypad-btn cyber-btn" data-val="6" style="padding: 6px; font-size: 12px; font-family: monospace;">6</button>
+        <button class="keypad-btn cyber-btn" data-val="7" style="padding: 6px; font-size: 12px; font-family: monospace;">7</button>
+        <button class="keypad-btn cyber-btn" data-val="8" style="padding: 6px; font-size: 12px; font-family: monospace;">8</button>
+        <button class="keypad-btn cyber-btn" data-val="9" style="padding: 6px; font-size: 12px; font-family: monospace;">9</button>
+        <button class="keypad-btn cyber-btn danger" data-val="clear" style="padding: 6px; font-size: 8px; border-color: rgba(255,56,96,0.4); font-family: var(--font-hud);">CLEAR</button>
+        <button class="keypad-btn cyber-btn" data-val="0" style="padding: 6px; font-size: 12px; font-family: monospace;">0</button>
+        <button class="keypad-btn cyber-btn warning" data-val="back" style="padding: 6px; font-size: 8px; border-color: rgba(255,170,0,0.4); font-family: var(--font-hud);">BACK</button>
+      </div>
+
+      <!-- Decryption Progress Group -->
+      <div id="decrypt-progress-group" style="display: none; flex-direction: column; gap: 4px; width: 100%;">
+        <div id="decrypt-progress-label" style="font-family: var(--font-hud); font-size: 8px; color: var(--neon-cyan); text-align: center; text-transform: uppercase;">DECRYPTING CORRELATION PIPELINE...</div>
+        <div style="height: 6px; background: rgba(0,0,0,0.4); border-radius: 3px; border: 1px solid rgba(0,242,254,0.15); overflow: hidden; position: relative;">
+          <div id="decrypt-progress-bar" style="width: 0%; height: 100%; background: var(--neon-blue); box-shadow: 0 0 8px var(--neon-blue); transition: width 0.1s linear;"></div>
+        </div>
+      </div>
+
+      <!-- Error Message Display -->
+      <div id="decrypt-error-message" style="color: var(--neon-red); font-family: var(--font-hud); font-size: 9px; display: none; text-shadow: var(--text-glow-red); text-align: center; text-transform: uppercase;">DECRYPTION PIN MISMATCH. ACCESS INTERCEPTED.</div>
+
+      <!-- Submit Action Button -->
+      <button id="decrypt-submit-btn" class="cyber-btn" style="width: 100%; font-size: 11px; padding: 10px 16px;">AUTHORIZE DECRYPTION KEY</button>
+    </div>
+  </div>
+
+  <!-- Fullscreen Cybersecurity Authentication Portal -->
+  <div id="login-fullscreen-portal" class="login-fullscreen-overlay">
+    <div class="login-auth-card">
+      <div style="text-align: center; margin-bottom: 10px;">
+        <h2 class="hud-logo-text" style="font-size: 24px; letter-spacing: 3px;">QUANTUM ACCESS GATEWAY</h2>
+        <span class="hero-subtitle" style="font-size:10px; letter-spacing: 4px; margin-top:5px; display:block;">BIOMETRIC AUTHENTICATION MATRIX</span>
+      </div>
+
+      <!-- Access Role Tabs -->
+      <div class="auth-role-tabs" style="grid-template-columns: 1fr 1fr 1fr; gap: 5px;">
+        <button id="role-btn-citizen" class="auth-role-btn active" style="font-size: 8px; padding: 8px 1px; letter-spacing: 0.5px;">Citizen Access</button>
+        <button id="role-btn-agent" class="auth-role-btn" style="font-size: 8px; padding: 8px 1px; letter-spacing: 0.5px;">Security Agent</button>
+        <button id="role-btn-admin" class="auth-role-btn purple" style="font-size: 8px; padding: 8px 1px; letter-spacing: 0.5px;">Command Admin</button>
+      </div>
+
+      <!-- Gateway Mode Selector Toggle -->
+      <div class="login-mode-select-container" style="display: flex; justify-content: center; gap: 12px; margin-top: -5px; margin-bottom: 5px;">
+        <button id="login-mode-btn-bio" class="login-mode-btn active">[ BIOMETRIC GATEWAY ]</button>
+        <button id="login-mode-btn-manual" class="login-mode-btn">[ SECURE PASSPHRASE ]</button>
+      </div>
+
+      <!-- Biometric Scanner Module Group -->
+      <div id="login-scanner-viewport-group" style="display: flex; flex-direction: column; gap: 12px;">
+        <!-- Selector -->
+        <div class="biometric-selector-group">
+          <button class="bio-type-btn active" data-bio="face">FACE ID</button>
+          <button class="bio-type-btn" data-bio="retina">RETINA SCAN</button>
+          <button class="bio-type-btn" data-bio="fingerprint">FINGERPRINT</button>
+        </div>
+
+        <!-- Scanner screen -->
+        <div id="login-scanner-viewport" class="login-scanner-viewport">
+          <video id="login-webcam-feed" autoplay playsinline style="display:none;"></video>
+          <canvas id="login-scan-canvas" class="retina-scan-canvas active"></canvas>
+          <div class="scan-progress-bar" id="login-scan-progress-bar"></div>
+        </div>
+
+        <div id="login-scan-status-label" class="scanner-tag-status">AWAITING FACE ID SCAN</div>
+        
+        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+          <button id="trigger-login-scan-btn" class="cyber-btn" style="flex: 2; font-size: 10px; padding: 10px 8px;">VERIFY IDENTITY</button>
+          <button id="register-login-face-btn" class="cyber-btn" style="flex: 2; font-size: 10px; padding: 10px 8px; border-color: var(--neon-purple); color: var(--neon-purple);" title="Register your face template locally">ENROLL FACE</button>
+          <button id="bypass-login-scan-btn" class="cyber-btn danger" style="flex: 1; font-size: 9px; padding: 10px 8px; border-color: rgba(255, 56, 96, 0.6);" title="Hackathon demo mode: Skip scan wait times">BYPASS</button>
+        </div>
+      </div>
+
+      <!-- Manual Passphrase Gateway Group (Hidden by default) -->
+      <div id="login-manual-credentials-group" style="display: none; flex-direction: column; gap: 12px;">
+        <div class="manual-input-wrapper" style="display: flex; flex-direction: column; gap: 4px;">
+          <label style="font-family: var(--font-hud); font-size: 8px; color: var(--neon-cyan); letter-spacing: 1px; text-shadow: var(--text-glow-blue);">OPERATOR CODE / USERNAME</label>
+          <input type="text" id="manual-login-username" class="blockchain-input" placeholder="e.g. admin" style="width: 100%; font-size: 11px; padding: 10px; background: rgba(0,0,0,0.5); border: 1px solid rgba(0,242,254,0.25); color: #fff; font-family: monospace;">
+        </div>
+        <div class="manual-input-wrapper" style="display: flex; flex-direction: column; gap: 4px;">
+          <label style="font-family: var(--font-hud); font-size: 8px; color: var(--neon-cyan); letter-spacing: 1px; text-shadow: var(--text-glow-blue);">DECRYPT PASSWORD / ACCESS KEY</label>
+          <input type="password" id="manual-login-password" class="blockchain-input" placeholder="••••••••••••" style="width: 100%; font-size: 11px; padding: 10px; background: rgba(0,0,0,0.5); border: 1px solid rgba(0,242,254,0.25); color: #fff; font-family: monospace;">
+        </div>
+        <div id="manual-login-error" class="scanner-tag-status" style="color: var(--neon-red); font-size: 9px; display: none; margin: 2px 0 0 0; text-shadow: var(--text-glow-red);">[ ACCESS DENIED: PASSPHRASE MISMATCH ]</div>
+        <button id="trigger-manual-login-btn" class="cyber-btn" style="width: 100%; font-size: 11px; padding: 12px 16px; margin-top: 5px;">AUTHORIZE SECURE HANDSHAKE</button>
+      </div>
+
+      <!-- Demo Credentials Info Card -->
+      <div id="demo-credentials-info-card" class="control-item-card" style="padding: 8px; background: rgba(0,0,0,0.4); border: 1px dashed rgba(0, 242, 254, 0.2); margin-top: 5px;">
+        <span style="font-family: var(--font-hud); font-size: 8px; color: var(--neon-cyan); display: block; margin-bottom: 4px; text-align: center; letter-spacing: 1px;">HACKATHON DEMO CLEARANCE PASSWORDS</span>
+        <div style="display: flex; justify-content: space-between; font-family: monospace; font-size: 8px; color: var(--text-secondary);">
+          <span>Citizen: <strong style="color:var(--neon-green)">citizen</strong> / <strong style="color:var(--neon-green)">citizen123</strong></span>
+          <span>Agent: <strong style="color:var(--neon-blue)">agent</strong> / <strong style="color:var(--neon-blue)">agent123</strong></span>
+          <span>Admin: <strong style="color:var(--neon-purple)">admin</strong> / <strong style="color:var(--neon-purple)">admin123</strong></span>
+        </div>
+      </div>
+
+      <!-- OTP Verification Group (Hidden by default, displayed for Admin) -->
+      <div id="login-otp-verification-group" style="display: none; flex-direction: column; gap: 15px; align-items: center;">
+        <div class="otp-hint-banner" id="login-otp-hint" style="width: 100%;">
+          Dispatched code: <span>----</span>
+        </div>
+        <div class="otp-inputs-row">
+          <input type="text" maxlength="1" class="otp-digit-field login-otp-digit">
+          <input type="text" maxlength="1" class="otp-digit-field login-otp-digit">
+          <input type="text" maxlength="1" class="otp-digit-field login-otp-digit">
+          <input type="text" maxlength="1" class="otp-digit-field login-otp-digit">
+        </div>
+        <button id="login-otp-verify-btn" class="cyber-btn purple" style="width: 100%;">VERIFY ACCESS KEY</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Global Red Alert Popup -->
+  <style>
+    @keyframes pulseLockdownRed {
+      0% { box-shadow: 0 0 20px rgba(255, 56, 96, 0.3); border-color: rgba(255, 56, 96, 0.5); }
+      100% { box-shadow: 0 0 50px rgba(255, 56, 96, 0.7); border-color: rgba(255, 56, 96, 1); }
+    }
+    .red-flash-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(255, 56, 96, 0);
+      z-index: 10999;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+    }
+    .red-flash-overlay.flashing {
+      opacity: 1;
+      animation: fullScreenRedFlash 0.8s infinite alternate;
+    }
+    @keyframes fullScreenRedFlash {
+      0% { background: rgba(255, 56, 96, 0.05); }
+      100% { background: rgba(255, 56, 96, 0.35); }
+    }
+  </style>
+  <div id="global-red-alert-popup" class="modal-overlay" style="display: none; background: rgba(255, 56, 96, 0.25); z-index: 11000; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+    <div class="modal-container danger" style="text-align: center; max-width: 380px; padding: 30px; background: rgba(10, 0, 0, 0.95); animation: pulseLockdownRed 1.5s infinite alternate; border: 1px solid var(--neon-red); border-radius: 8px;">
+      <div style="font-size: 40px; margin-bottom: 10px;">🚨</div>
+      <h2 style="font-family: var(--font-hud); color: var(--neon-red); font-size: 18px; letter-spacing: 2px; text-shadow: var(--text-glow-red); margin-bottom: 8px;" id="alert-popup-title">THREAT DETECTED</h2>
+      <p style="font-family: monospace; color: #fff; font-size: 11px; margin-bottom: 20px; line-height: 1.5;" id="alert-popup-msg">Critical security breach registered inside Sector 4 perimeter gateway.</p>
+      <button onclick="window.closeGlobalAlertPopup()" class="cyber-btn danger" style="font-size: 10px; padding: 10px 20px; width: 100%; border-color: var(--neon-red); color: #fff; background: rgba(255, 56, 96, 0.15);">ACKNOWLEDGE & OVERRIDE</button>
+    </div>
+  </div>
+
+  <!-- CDN for face-api.js (vladmandic updated fork) -->
+  <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.js"></script>
+
+  <!-- Logic Modules scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/cctv.js"></script>
+  <script src="js/threat.js"></script>
+  <script src="js/blockchain.js"></script>
+  <script src="js/portal.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/voice.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/tactical.js"></script>
+  <script src="js/analytics.js"></script>
+</body>
+</html>
