@@ -1,0 +1,272 @@
+/* Cybersecurity Authentication & Biometric Login Styles */
+
+.login-fullscreen-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--bg-deep);
+  background-image: 
+    radial-gradient(circle at center, rgba(13, 16, 27, 0.4) 0%, #030305 100%),
+    linear-gradient(rgba(0, 242, 254, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 242, 254, 0.02) 1px, transparent 1px);
+  background-size: auto, 40px 40px;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--trans-slow), visibility var(--trans-slow);
+}
+
+.login-fullscreen-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.login-auth-card {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(10, 11, 16, 0.85);
+  border: 1px solid var(--border-neon);
+  box-shadow: 0 0 35px rgba(0, 242, 254, 0.2);
+  border-radius: 8px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.login-auth-card::before {
+  content: 'AUTHORIZED PERSONNEL ONLY';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-hud);
+  font-size: 10px;
+  background: var(--neon-red);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 2px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  box-shadow: 0 0 8px var(--neon-red);
+}
+
+.auth-role-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.auth-role-btn {
+  font-family: var(--font-hud);
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--trans-fast);
+  border-radius: 2px;
+}
+
+.auth-role-btn.active {
+  background: rgba(0, 242, 254, 0.15);
+  color: var(--neon-blue);
+  text-shadow: var(--text-glow-blue);
+  border: 1px solid var(--border-neon);
+}
+
+.auth-role-btn.purple.active {
+  background: rgba(177, 13, 201, 0.15);
+  color: var(--neon-purple);
+  text-shadow: var(--text-glow-purple);
+  border-color: var(--border-purple);
+}
+
+/* Biometric Scan Section */
+.biometric-selector-group {
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+}
+
+.bio-type-btn {
+  font-family: var(--font-hud);
+  font-size: 9px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  border-radius: 2px;
+  transition: var(--trans-fast);
+}
+
+.bio-type-btn.active {
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  background: rgba(79, 172, 254, 0.1);
+}
+
+.login-scanner-viewport {
+  height: 200px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px dashed rgba(0, 242, 254, 0.2);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-scanner-viewport.scanning {
+  border-color: var(--neon-red);
+}
+
+/* Retina scan grid canvas */
+.retina-scan-canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0; left: 0;
+  display: none;
+}
+
+.retina-scan-canvas.active {
+  display: block;
+}
+
+.scan-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: var(--neon-blue);
+  box-shadow: 0 0 8px var(--neon-blue);
+  transition: width 0.1s linear;
+}
+
+.login-scanner-viewport.scanning .scan-progress-bar {
+  background: var(--neon-red);
+  box-shadow: 0 0 8px var(--neon-red);
+}
+
+.scanner-tag-status {
+  font-family: var(--font-hud);
+  font-size: 11px;
+  color: var(--neon-cyan);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 10;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Equalizer voice sound wave indicator in header */
+.voice-wave-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 18px;
+  width: 45px;
+}
+
+.voice-wave-bar {
+  width: 3px;
+  height: 4px;
+  background: var(--neon-blue);
+  border-radius: 1px;
+  transition: height 0.15s ease-in-out;
+}
+
+.voice-wave-container.speaking .voice-wave-bar {
+  animation: bounceBar 0.8s infinite ease-in-out alternate;
+}
+
+.voice-wave-container.speaking .voice-wave-bar:nth-child(1) { animation-delay: 0.1s; }
+.voice-wave-container.speaking .voice-wave-bar:nth-child(2) { animation-delay: 0.3s; }
+.voice-wave-container.speaking .voice-wave-bar:nth-child(3) { animation-delay: 0.5s; }
+.voice-wave-container.speaking .voice-wave-bar:nth-child(4) { animation-delay: 0.2s; }
+.voice-wave-container.speaking .voice-wave-bar:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes bounceBar {
+  0% { height: 4px; }
+  100% { height: 18px; }
+}
+
+/* Glassmorphic Authorization Block Overlays */
+.view-lock-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(5, 5, 8, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 30px;
+  text-align: center;
+}
+
+.lock-shield-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--neon-red);
+  filter: drop-shadow(0 0 10px var(--neon-red));
+  animation: pulseScanColor 2s infinite alternate;
+}
+
+.lock-title {
+  font-family: var(--font-hud);
+  font-size: 20px;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.lock-subtitle {
+  color: var(--text-secondary);
+  font-size: 13.5px;
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+/* Gateway Mode Button Selectors */
+.login-mode-btn {
+  font-family: var(--font-hud);
+  font-size: 9px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  transition: var(--trans-fast);
+  text-transform: uppercase;
+}
+
+.login-mode-btn:hover {
+  color: var(--neon-cyan);
+  text-shadow: var(--text-glow-blue);
+}
+
+.login-mode-btn.active {
+  color: var(--neon-cyan);
+  text-shadow: var(--text-glow-blue);
+  font-weight: bold;
+}

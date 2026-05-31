@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <!-- Background -->
+  <rect width="192" height="192" rx="40" fill="#050508" stroke="#00f2fe" stroke-width="2"/>
+  
+  <!-- Cyber grids -->
+  <path d="M 0 48 L 192 48 M 0 96 L 192 96 M 0 144 L 192 144 M 48 0 L 48 192 M 96 0 L 96 192 M 144 0 L 144 192" stroke="rgba(0, 242, 254, 0.05)" stroke-width="1"/>
+  
+  <!-- Glowing target reticle -->
+  <circle cx="96" cy="96" r="60" fill="none" stroke="#00f2fe" stroke-dasharray="10 15" stroke-width="1.5" opacity="0.3"/>
+  <circle cx="96" cy="96" r="30" fill="none" stroke="#b10dc9" stroke-width="1" opacity="0.4"/>
+  
+  <!-- Shield shape -->
+  <path d="M 96 45 C 120 45 138 52 138 52 L 138 96 C 138 126 96 147 96 147 C 96 147 54 126 54 96 L 54 52 C 54 52 72 45 96 45 Z" fill="rgba(0, 242, 254, 0.08)" stroke="#00f2fe" stroke-width="3" filter="drop-shadow(0px 0px 8px #00f2fe)"/>
+  
+  <!-- Inner lock core -->
+  <path d="M 96 72 C 90 72 85 77 85 83 L 85 90 H 80 V 108 H 112 V 90 H 107 V 83 C 107 77 102 72 96 72 Z M 96 77 C 99 77 102 80 102 83 L 102 90 H 90 L 90 83 C 90 80 93 77 96 77 Z" fill="#b10dc9"/>
+</svg>

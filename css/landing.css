@@ -1,0 +1,353 @@
+/* Landing Page Styles for ShadowShield AI */
+
+.landing-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 60px 20px;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Background Cyber Grid Skyline */
+.skyline-canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+.skyline-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.landing-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+}
+
+.hero-header {
+  margin-top: 20px;
+}
+
+.hero-title {
+  font-family: var(--font-hud);
+  font-size: 56px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #fff 0%, var(--neon-blue) 50%, var(--neon-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.3));
+}
+
+.hero-subtitle {
+  font-family: var(--font-hud);
+  font-size: 16px;
+  color: var(--neon-cyan);
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  margin-bottom: 20px;
+  animation: pulseSubtitle 3s infinite ease-in-out;
+}
+
+@keyframes pulseSubtitle {
+  0%, 100% {
+    opacity: 0.6;
+    text-shadow: none;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: var(--text-glow-cyan);
+  }
+}
+
+.hero-description {
+  max-width: 650px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+/* Holographic Pillars Grid */
+.pillars-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.pillar-card {
+  padding: 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid rgba(0, 242, 254, 0.15);
+  transition: all var(--trans-normal);
+  background: rgba(10, 11, 16, 0.7);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.pillar-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--neon-blue);
+  box-shadow: 0 12px 30px rgba(0, 242, 254, 0.15);
+}
+
+.pillar-card.purple:hover {
+  border-color: var(--neon-purple);
+  box-shadow: 0 12px 30px rgba(177, 13, 201, 0.15);
+}
+
+.pillar-card.pink:hover {
+  border-color: var(--neon-pink);
+  box-shadow: 0 12px 30px rgba(255, 0, 127, 0.15);
+}
+
+.pillar-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 242, 254, 0.1);
+  border: 1px solid var(--neon-blue);
+  color: var(--neon-blue);
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+  font-size: 20px;
+}
+
+.pillar-card.purple .pillar-icon-wrapper {
+  background: rgba(177, 13, 201, 0.1);
+  border-color: var(--neon-purple);
+  color: var(--neon-purple);
+  box-shadow: 0 0 10px rgba(177, 13, 201, 0.2);
+}
+
+.pillar-card.pink .pillar-icon-wrapper {
+  background: rgba(255, 0, 127, 0.1);
+  border-color: var(--neon-pink);
+  color: var(--neon-pink);
+  box-shadow: 0 0 10px rgba(255, 0, 127, 0.2);
+}
+
+.pillar-title {
+  font-family: var(--font-hud);
+  font-size: 18px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pillar-desc {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Call To Action area */
+.landing-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.boot-sequence-display {
+  font-family: var(--font-hud);
+  font-size: 11px;
+  color: var(--neon-blue);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  min-height: 15px;
+  opacity: 0.8;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 38px;
+    letter-spacing: 2px;
+  }
+  .pillars-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================== SENTINEL OVERVIEW SOC DASHBOARD STYLING ==================== */
+.sentinel-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 1. TOP METRICS ROW */
+.sentinel-metrics-bar {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .sentinel-metrics-bar {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.sentinel-card.metric-card {
+  background: rgba(13, 16, 27, 0.7);
+  border: 1px solid rgba(0, 242, 254, 0.15);
+  border-radius: 4px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.sentinel-card.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 1.5px;
+  background: var(--neon-cyan);
+  opacity: 0.3;
+}
+
+.sentinel-card.metric-card:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.12);
+  transform: translateY(-2px);
+}
+
+.sentinel-lbl {
+  font-size: 8px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sentinel-val {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  font-family: monospace;
+}
+
+.sentinel-sub {
+  font-size: 7.5px;
+  color: var(--text-muted);
+  font-family: monospace;
+}
+
+/* 2. DASHBOARD 3-PANEL WORKSPACE */
+.sentinel-workspace {
+  display: grid;
+  grid-template-columns: 270px 1fr 270px;
+  gap: 15px;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+  .sentinel-workspace {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+  .sentinel-panel-col {
+    height: auto !important;
+  }
+}
+
+.sentinel-panel-col {
+  min-height: 0;
+}
+
+.sentinel-panel-col.middle {
+  min-height: 0;
+}
+
+/* CCTV feed specific styles */
+.surveillance-feed-container canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Chrono Alert ticker items */
+.sentinel-alert-feed-item {
+  background: rgba(13, 16, 27, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 3px;
+  padding: 4px 6px;
+  font-family: monospace;
+  font-size: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.sentinel-alert-feed-item.danger {
+  border-left: 2px solid var(--neon-red);
+}
+
+.sentinel-alert-feed-item.warning {
+  border-left: 2px solid var(--neon-yellow);
+}
+
+.sentinel-alert-feed-item.success {
+  border-left: 2px solid var(--neon-green);
+}
+
+.sentinel-alert-feed-item.info {
+  border-left: 2px solid var(--neon-blue);
+}
+
+/* Ledger Preview formatting */
+.sentinel-ledger-table-container th {
+  font-family: var(--font-hud);
+  font-size: 7.5px;
+  color: var(--neon-purple);
+  padding: 4px;
+}
+
+.sentinel-ledger-table-container td {
+  padding: 4px;
+  color: var(--text-secondary);
+}
+
+/* Simple oscilloscopes analytics charts styling */
+.sentinel-charts-row canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+

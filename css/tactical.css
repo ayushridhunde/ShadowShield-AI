@@ -1,0 +1,623 @@
+/* Emergency Tactical Mode CSS for ShadowShield AI */
+
+/* 1. GLOBAL RED ALERT THEME OVERRIDE */
+body.red-alert-active {
+  --neon-blue: #ff3860;
+  --neon-cyan: #ff0055;
+  --neon-purple: #900020;
+  --border-neon: rgba(255, 56, 96, 0.45);
+  --border-purple: rgba(255, 56, 96, 0.3);
+  --text-glow-blue: 0 0 10px rgba(255, 56, 96, 0.8), 0 0 20px rgba(255, 56, 96, 0.4);
+  --text-glow-cyan: 0 0 8px rgba(255, 56, 96, 0.8);
+  --text-glow-purple: 0 0 10px rgba(144, 0, 32, 0.8);
+  animation: globalAlertPulse 4s infinite alternate;
+}
+
+@keyframes globalAlertPulse {
+  0% { background-color: #050508; }
+  100% { background-color: #0d0406; }
+}
+
+/* 2. THREE-COLUMN CYBERNETIC VIEWPORT GRID */
+.tactical-viewport-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 80px);
+  gap: 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: var(--font-hud);
+}
+
+/* Top bar widget header */
+.tactical-top-widget {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 15px;
+  align-items: center;
+  background: rgba(20, 4, 6, 0.85);
+  border: 1px solid var(--neon-red);
+  border-radius: 4px;
+  padding: 8px 18px;
+  box-shadow: 0 0 15px rgba(255, 56, 96, 0.15);
+  position: relative;
+}
+
+.tactical-top-widget::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon-red), transparent);
+}
+
+.defcon-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.defcon-box {
+  padding: 3px 8px;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid var(--text-muted);
+  border-radius: 2px;
+  font-size: 11px;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+.defcon-box.active {
+  background: var(--neon-red);
+  color: #fff;
+  border-color: var(--neon-red);
+  text-shadow: 0 0 8px #fff;
+  box-shadow: 0 0 10px rgba(255, 56, 96, 0.6);
+}
+
+.active-emergency-units {
+  display: flex;
+  gap: 12px;
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+.unit-tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 56, 96, 0.08);
+  border: 1px solid rgba(255, 56, 96, 0.2);
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+.unit-tag.active {
+  border-color: var(--neon-green);
+  color: var(--neon-green);
+  box-shadow: 0 0 6px rgba(57, 255, 14, 0.2);
+}
+
+.system-warning-banner {
+  font-size: 12px;
+  color: var(--neon-red);
+  font-weight: bold;
+  animation: textFlashWarning 1s infinite alternate;
+  letter-spacing: 2px;
+}
+
+@keyframes textFlashWarning {
+  0% { opacity: 0.3; text-shadow: none; }
+  100% { opacity: 1; text-shadow: var(--text-glow-red); }
+}
+
+/* 3-Column main deck layout */
+.tactical-main-deck {
+  display: grid;
+  grid-template-columns: 310px 1fr 340px;
+  flex: 1;
+  gap: 15px;
+  min-height: 0; /* Important for grid overflow scroll */
+}
+
+/* Panels generic */
+.tactical-subpanel {
+  display: flex;
+  flex-direction: column;
+  background: rgba(10, 11, 16, 0.85);
+  border: 1px solid var(--border-neon);
+  border-radius: 4px;
+  padding: 12px;
+  box-shadow: var(--panel-shadow);
+  overflow: hidden;
+  position: relative;
+}
+
+.tactical-subpanel.danger {
+  border-color: var(--neon-red);
+  box-shadow: 0 0 15px rgba(255, 56, 96, 0.1);
+}
+
+.tactical-panel-header {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--neon-red);
+  border-bottom: 1px solid rgba(255, 56, 96, 0.2);
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LEFT PANEL (Surveillance hub) */
+.cctv-multi-feed-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  height: 240px;
+  margin-bottom: 12px;
+}
+
+.cctv-grid-cell {
+  background: #020204;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cctv-grid-cell.active-target {
+  border-color: var(--neon-red);
+  box-shadow: inset 0 0 8px rgba(255, 56, 96, 0.3);
+}
+
+.cctv-cell-canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cctv-label {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 7px;
+  color: #fff;
+  background: rgba(0,0,0,0.8);
+  padding: 1px 4px;
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+.facial-scanner-subview {
+  background: rgba(255, 56, 96, 0.03);
+  border: 1px solid rgba(255, 56, 96, 0.15);
+  border-radius: 3px;
+  padding: 8px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: auto;
+}
+
+.scanner-feed-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+  padding-bottom: 6px;
+}
+
+.scanner-feed-item:last-child {
+  border-bottom: none;
+}
+
+.scanner-avatar-box {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--neon-red);
+  background: rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.scanner-avatar-box::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; height: 1.5px;
+  background: var(--neon-red);
+  animation: avatarScannerSweep 1.5s infinite linear;
+}
+
+@keyframes avatarScannerSweep {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+.scanner-meta {
+  font-size: 8px;
+  font-family: monospace;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+.scanner-meta strong {
+  color: #fff;
+}
+
+.tactical-zoom-controls {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.zoom-btn {
+  flex: 1;
+  font-size: 8px;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0,0,0,0.5);
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.zoom-btn.active {
+  border-color: var(--neon-red);
+  color: var(--neon-red);
+  background: rgba(255, 56, 96, 0.1);
+  font-weight: bold;
+}
+
+/* CENTER PANEL (Threat Analyzer HUD) */
+.center-radar-and-map-container {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  gap: 10px;
+  height: 250px;
+  margin-bottom: 12px;
+}
+
+.main-holographic-map {
+  background: radial-gradient(circle, rgba(30, 4, 6, 0.6) 0%, rgba(5, 0, 0, 0.95) 100%);
+  border: 1px solid var(--neon-red);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(255, 56, 96, 0.2);
+}
+
+.radar-gauge-viewport {
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(255, 56, 96, 0.25);
+  border-radius: 4px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.probability-radial-box {
+  position: relative;
+  width: 90px;
+  height: 90px;
+}
+
+.probability-radial-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.probability-radial-circle-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.04);
+  stroke-width: 6px;
+}
+
+.probability-radial-circle-active {
+  fill: none;
+  stroke: var(--neon-red);
+  stroke-width: 6.5px;
+  stroke-dasharray: 251.2;
+  stroke-dashoffset: 25.1; /* Tweak dynamically */
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.8s ease;
+  filter: drop-shadow(0 0 4px var(--neon-red));
+}
+
+.probability-value-overlay {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--neon-red);
+  text-shadow: var(--text-glow-red);
+}
+
+.countdown-timer-box {
+  background: rgba(255, 56, 96, 0.08);
+  border: 1px solid rgba(255, 56, 96, 0.3);
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-align: center;
+  width: 100%;
+}
+
+.countdown-value {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--neon-yellow);
+  text-shadow: 0 0 10px rgba(243, 243, 21, 0.6);
+  font-family: monospace;
+}
+
+.ai-decision-log-terminal {
+  flex: 1;
+  background: rgba(2,2,4,0.85);
+  border: 1px solid rgba(255, 56, 96, 0.25);
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-family: monospace;
+  font-size: 9.5px;
+  color: #fff;
+  line-height: 1.45;
+  overflow-y: auto;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+}
+
+/* RIGHT PANEL (Response Operations) */
+.threat-profile-box {
+  background: rgba(255, 56, 96, 0.05);
+  border: 1px solid rgba(255, 56, 96, 0.25);
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 12px;
+}
+
+.threat-profile-box select {
+  width: 100%;
+  background: #020204;
+  border: 1px solid rgba(255,56,96,0.4);
+  color: #fff;
+  font-family: var(--font-hud);
+  font-size: 9.5px;
+  padding: 6px;
+  border-radius: 2px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.recommendations-log-box {
+  flex: 1;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255, 56, 96, 0.15);
+  border-radius: 4px;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.rec-item {
+  font-size: 9.5px;
+  color: var(--text-secondary);
+  border-left: 2.5px solid var(--neon-yellow);
+  padding-left: 8px;
+  line-height: 1.4;
+}
+
+.rec-item.enacted {
+  border-left-color: var(--neon-green);
+  color: var(--neon-green);
+}
+
+.status-badge-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.status-badge-card {
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 2px;
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.badge-lbl {
+  font-size: 7.5px;
+  color: var(--text-muted);
+}
+
+.badge-val {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.badge-val.active {
+  color: var(--neon-red);
+  text-shadow: var(--text-glow-red);
+}
+
+.badge-val.running {
+  color: var(--neon-yellow);
+}
+
+.emergency-console-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.emergency-act-btn {
+  font-size: 9.5px;
+  padding: 10px 4px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-hud);
+  transition: all 0.2s ease;
+}
+
+.emergency-act-btn.primary {
+  background: rgba(255, 56, 96, 0.15);
+  border: 1px solid var(--neon-red);
+  color: #fff;
+}
+
+.emergency-act-btn.primary:hover {
+  background: var(--neon-red);
+  box-shadow: 0 0 10px var(--neon-red);
+}
+
+.emergency-act-btn.success {
+  background: rgba(57, 255, 20, 0.15);
+  border: 1px solid var(--neon-green);
+  color: #fff;
+}
+
+.emergency-act-btn.success:hover {
+  background: var(--neon-green);
+  color: #000;
+  box-shadow: 0 0 10px var(--neon-green);
+}
+
+.emergency-act-btn.secondary {
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-secondary);
+}
+
+.emergency-act-btn.secondary:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+/* BOTTOM PANEL (Audit & Logs) */
+.tactical-bottom-panel {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 15px;
+  height: 155px;
+  min-height: 0;
+}
+
+.audit-logs-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(10, 11, 16, 0.85);
+  border: 1px solid var(--border-neon);
+  border-radius: 4px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.logs-card-viewport {
+  flex: 1;
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 8.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-right: 4px;
+}
+
+.ledger-item {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 4px 8px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ledger-item span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80%;
+}
+
+.comm-feed-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: monospace;
+  font-size: 8px;
+}
+
+.comm-item {
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.comm-item strong {
+  color: var(--neon-yellow);
+}
+
+.live-parameters-chart-wrapper {
+  flex: 1;
+  position: relative;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 2px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.live-parameters-chart-wrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* Scanline Sweep animation overlays */
+.crt-scanlines {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.45;
+}
+
+.scanline-sweep-bar {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 6px;
+  background: linear-gradient(rgba(255, 56, 96, 0), rgba(255, 56, 96, 0.45), rgba(255, 56, 96, 0));
+  pointer-events: none;
+  z-index: 3;
+  animation: mainScanlineSweep 6s infinite linear;
+}
+
+@keyframes mainScanlineSweep {
+  0% { top: -5%; }
+  100% { top: 105%; }
+}
