@@ -2,202 +2,182 @@
 
 ### Protecting Cities Without Watching Everyone
 
-ShadowShield AI is a futuristic ethical surveillance platform designed to solve one of the biggest challenges of modern society:
+ShadowShield AI is an AI-powered ethical surveillance and privacy-preserving security platform designed for future smart cities.
 
-**How can we improve public safety without sacrificing citizen privacy?**
+Built around the theme:
 
-Unlike traditional surveillance systems that continuously monitor everyone, ShadowShield AI focuses only on suspicious activities while protecting innocent citizens through AI-powered privacy controls.
+**Mass Surveillance vs Public Safety**
 
----
-
-## 🚀 Problem Statement
-
-Modern surveillance systems improve security but often create privacy concerns:
-
-* Continuous monitoring of citizens
-* Unauthorized access to surveillance data
-* Lack of transparency
-* Risk of surveillance misuse
-* Privacy violations
-
-ShadowShield AI introduces an ethical surveillance framework that ensures safety and privacy can coexist.
+The platform demonstrates how advanced surveillance systems can improve public safety while protecting citizen privacy through AI, transparency, and accountability.
 
 ---
 
-## ✨ Key Features
+## 🚀 Vision
 
-### 🔐 Biometric Authentication
+Traditional surveillance systems often collect excessive personal data and provide little transparency.
 
-* Face ID Login
-* Retina Scan Simulation
-* Secure Authority Access
-* OTP Verification
+ShadowShield AI introduces a privacy-first architecture where:
 
-### 📹 Live AI Surveillance
+✅ Citizens remain protected by default
 
-* Real-time CCTV Monitoring
-* AI Camera Feeds
-* Motion Detection
-* Smart Activity Analysis
+✅ AI focuses on suspicious activities instead of constant tracking
 
-### 🧠 AI Threat Detection
+✅ Sensitive access is monitored and auditable
 
-* Suspicious Activity Detection
-* Threat Classification
-* Risk Prediction Engine
-* Emergency Alert System
+✅ Every critical action is transparently recorded
 
-### 🕶️ Privacy Protection Engine
+---
 
-* Automatic Face Blurring
-* Citizen Privacy Shield
-* Anonymous Monitoring
-* Ethical AI Decision System
+## ✨ Core Features
+
+### 🔐 Quantum Access Gateway
+- Face ID Authentication
+- Retina Scan Simulation
+- Secure Login System
+- Authority Verification
+
+### 🖥️ Sentinel Overview
+- Real-Time Command Center
+- System Health Monitoring
+- Active Threat Status
+- Privacy Metrics Dashboard
+
+### 🧠 Threat Intelligence Grid
+- AI Threat Detection
+- Threat Classification
+- Risk Assessment
+- Smart Alert Generation
+
+### 🛡️ Privacy Protection Engine
+- Automatic Face Blurring
+- Citizen Identity Protection
+- Privacy Shield Controls
+- Ethical Surveillance Policies
 
 ### 🚨 Emergency Tactical Mode
+- Critical Incident Response
+- Emergency Alerts
+- Threat Tracking
+- AI Response Recommendations
 
-* Red Alert Interface
-* Threat Tracking Dashboard
-* AI Voice Assistant
-* Drone Deployment Simulation
-* Emergency Lockdown Controls
+### ⛓️ Immutable Trust Ledger
+- Blockchain-Inspired Audit Logs
+- Access Tracking
+- Transparency Reports
+- Tamper-Resistant Records
 
-### 🌆 Smart City Intelligence
+### 👤 Citizen Shield Vault
+- Privacy Dashboard
+- Data Access History
+- Transparency Controls
+- Citizen Rights Management
 
-* Real-Time Heatmaps
-* Threat Zones
-* Active Camera Monitoring
-* City Analytics Dashboard
-
-### ⛓️ Blockchain Audit Ledger
-
-* Tamper-Proof Logs
-* Access Tracking
-* Transparency Reports
-* Immutable Records
-
-### 👤 Citizen Transparency Portal
-
-* Privacy Score
-* Data Access History
-* Permission Controls
-* Surveillance Transparency
+### 🤖 Ask AI Assistant
+- AI-Powered System Assistant
+- Threat Insights
+- Privacy Reports
+- Security Recommendations
 
 ---
 
-## 🏗️ System Architecture
+## 🏗️ System Flow
 
-User Authentication
+Authentication
 ↓
-Face ID / Retina Scan
+AI Surveillance Monitoring
 ↓
-AI Surveillance Engine
-↓
-Threat Detection Layer
+Threat Detection Engine
 ↓
 Privacy Protection Layer
 ↓
-Emergency Tactical Mode
+Emergency Response System
 ↓
-Blockchain Audit Ledger
+Immutable Trust Ledger
 ↓
 Citizen Transparency Portal
 
 ---
 
-## 🖥️ Core Modules
-
-### Quantum Access Gateway
-
-Advanced biometric login system.
-
-### Neural Command Center
-
-Main surveillance dashboard.
-
-### Threat Intelligence Grid
-
-AI-powered threat analysis center.
-
-### Citizen Shield Vault
-
-Privacy and transparency portal.
-
-### Immutable Trust Ledger
-
-Blockchain audit tracking.
-
-### Emergency Tactical Mode
-
-Critical threat response center.
-
----
-
-## 🛠️ Tech Stack
-
-Frontend:
-
-* React
-* Tailwind CSS
-* Framer Motion
-
-Backend:
-
-* FastAPI / Node.js
-
-AI:
-
-* OpenCV
-* YOLO
-* Face API
-
-Data:
-
-* MongoDB
-
-Visualization:
-
-* Recharts
-* Mapbox
-
-Security:
-
-* JWT Authentication
-* Encryption Layer
-
----
-
 ## 🎯 Hackathon Theme
 
-Mass Surveillance vs Public Safety
+### Mass Surveillance vs Public Safety
 
-ShadowShield AI demonstrates that surveillance systems can protect public safety while preserving the privacy and rights of innocent citizens.
+ShadowShield AI addresses the challenge of balancing security and privacy by implementing:
+
+- Ethical AI Surveillance
+- Privacy-by-Design Principles
+- Transparent Audit Trails
+- Accountable Access Control
+- Citizen-Centric Data Protection
+
+---
+
+## 🛠️ Technology Stack
+
+### Frontend
+- HTML5
+- CSS3
+- JavaScript
+- Tailwind CSS
+
+### AI & Analytics
+- OpenCV
+- YOLO
+- Face Detection APIs
+
+### Security
+- Biometric Authentication
+- Encryption Layer
+- Privacy Protection Framework
+
+### Visualization
+- Recharts
+- Smart City Dashboards
+- Interactive Heatmaps
+
+---
+
+## 🚀 Running Locally
+
+1. Clone the repository
+2. Open the project folder
+3. Launch the application locally
+4. Allow camera permissions
+5. Explore all modules from the dashboard
 
 ---
 
 ## 🔮 Future Scope
 
-* Real-time AI threat prediction
-* Drone surveillance integration
-* Satellite intelligence support
-* Federated privacy-preserving AI
-* Smart city deployment
-* Advanced ethical AI governance
+- Real-Time AI Threat Prediction
+- Smart City Deployment
+- Drone Integration
+- Federated Privacy AI
+- Advanced Compliance Monitoring
+- Ethical AI Governance Framework
 
 ---
 
-## 📢 Taglines
+## 📢 Tagline
 
-"Protecting Cities Without Watching Everyone."
+**"Protecting Cities Without Watching Everyone."**
 
-"AI for Safety. Privacy by Design."
-
-"Surveillance with Ethics."
-
----
+**ShadowShield AI — Privacy by Design, Safety by Intelligence.**
 
 ## 👨‍💻 Team
 
 Built for Hackathon Innovation.
 
-ShadowShield AI – Ethical Surveillance for the Future.
+Team Name: The Prism
+
+Members:
+- Ayushri Dhunde
+- Piyush Kawale
+- Harshita Chapekar
+- Yachana Biranwar
+
+Focused on ethical surveillance, privacy preservation, transparency, and public safety.
+
+## 📄 License
+
+This project is developed for educational, research, and hackathon purposes.
